@@ -43,7 +43,4 @@ int main(int argc, const char * argv[]) {
     p.setValor("Conservador");
     cout<<p.getValor()<<endl;
     return 0;
-    
-
-    
 }
