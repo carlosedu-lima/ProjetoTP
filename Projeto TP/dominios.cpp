@@ -1,9 +1,3 @@
-//
-//  dominios.cpp
-//  Projeto TP
-//
-//  Created by Carlos Eduardo Figueredo Lima on 26/04/25.
-//
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -66,9 +60,9 @@ bool Perfil::setValor(string valor){
 // Métodos: Qauntidade / Luiz Carlos - 241004560
 bool Quantidade::validar(float valor){
     if (valor > LIMITE_MAX)
-        return false;
+        throw invalid_argument("Valor acima do Limite.");
     if (valor < LIMITE_MIN)
-        return false;
+        throw invalid_argument("Valor abaixo do Limite.");
     return true;
 }
 
@@ -84,9 +78,9 @@ bool Quantidade::setValor(float valor){
 
 bool Dinheiro::validar(int valor){
     if (valor > LIMITE_MAX)
-        return false;
+        throw invalid_argument("Valor acima do Limite.");
     if (valor < LIMITE_MIN)
-        return false;
+        throw invalid_argument("Valor abaixo do Limite.");
     return true;
 }
 
@@ -102,11 +96,11 @@ bool Dinheiro::setValor(int valor){
 
 bool Data::validarData(int ano, int mes, int dia) {
     if (ano > LIMITE_MAX_ANO || ano < LIMITE_MIN_ANO)
-        return false;
+        throw invalid_argument("Data invalida.");
     if (mes > LIMITE_MAX_MES || ano < LIMITE_MIN_MES)
-        return false;
+        throw invalid_argument("Data invalida.");
     if (dia > LIMITE_MAX_DIA || ano < LIMITE_MIN_DIA)
-        return false;
+        throw invalid_argument("Data invalida.");
     return true;
 }
 
@@ -124,15 +118,15 @@ bool Data::setData(int ano, int mes, int dia) {
 // Métodos: Nome / Luiz Carlos - 241004560
 bool Nome::validarNome(string nome){
     if (nome.length() > LIMITE_CHAR_MAX)
-        return false;
+        throw invalid_argument("Caracteres acima do limite.");
     if (nome.length() < LIMITE_CHAR_MIN)
-        return false;
+        throw invalid_argument("Caracteres abaixo do limite.");
 // primeiro [] permite letras e numeros, segundo [?:] permite espaços "\\s" se eles tiverem no minimo 1 membro do grupo selecionado  logo depois.
 // ^ começa a string, $ termina a string, []+ indica que deve ter alguem desse grupo depois do \\s, (?:...)* é o grupo de exclusão.
     regex padrao("^[A-Za-zÀ-ÖØ-öø-ÿ0-9]+(?:\\s[A-Za-zÀ-ÖØ-öø-ÿ0-9]+)*$");
     if (regex_match(nome,padrao))
         return true;
-    return false;
+    throw invalid_argument("Nome invalido.");
 }
 
 bool Nome::setNome(string nome){
@@ -144,12 +138,16 @@ bool Nome::setNome(string nome){
 // Métodos: CPF / Luiz Carlos - 241004560
 
 bool CPF::validarCPF(string cpf){
-    if (cpf.size() == TAMANHO)
-        return true;
+    if (cpf.size() == TAMANHO){
+        if (cpfsCadastrados.count(cpf)){
+            throw invalid_argument("CPF ja Cadastrado!");}
+            else
+                return true;
+    }
     else
-        return false;
+        throw invalid_argument("CPF Invalido!");
 }
-
+set<string> CPF::cpfsCadastrados; // Inicialização do set declarado na classe CPF
 bool CPF::setCPF(string cpf){
     string num3;
     string num6;
@@ -161,6 +159,7 @@ bool CPF::setCPF(string cpf){
         num9 = cpf.substr(6, 3);
         num11 = cpf.substr(9);
         this->cpf = num3 + '.' + num6 + '.' + num9 + '-' + num11;
+        cpfsCadastrados.insert(cpf);
         return true;}
     return false;
     }
