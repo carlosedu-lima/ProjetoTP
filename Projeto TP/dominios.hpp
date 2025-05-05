@@ -1,15 +1,9 @@
-//
-//  dominios.hpp
-//  Projeto TP
-//
-//  Created by Carlos Eduardo Figueredo Lima on 26/04/25.
-//
-
 #ifndef dominios_hpp
 #define dominios_hpp
 
 #include <stdio.h>
 #include <string>
+#include <set>
 using namespace std;
 //Classe Codigo
 class Codigo{
@@ -54,7 +48,7 @@ inline string Perfil::getValor(){
 }
 //Classe Senha
 class Senha{
-    
+
 };
 
 //Domínio: Quantidade / Luiz Carlos - 241004560
@@ -138,6 +132,7 @@ private:
     static const int TAMANHO = 11;
     string cpf;
     bool validarCPF(string);
+    static set<string> cpfsCadastrados;
 public:
     bool setCPF(string);
     string getCPF();
