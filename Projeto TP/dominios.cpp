@@ -5,12 +5,13 @@
 #include <sstream> // string stream: biblioteca que permite manipular strings como se fossem entrada/saída.
 #include <iomanip> // input/output manipulators: biblioteca que funciona em conjunto com a sstream para manipular strings.
 #include <regex> // expressões regulares
+#include <stdexcept>
 
 using namespace std;
-//Metodos Classe Codigo
+//Metodos Classe Dominio Codigo - Carlos Eduardo 241004659
 bool Codigo::validar(int valor){
     if(valor>LIMITEMAX||valor<LIMITEMIN)
-        return false;
+        throw invalid_argument("Valor Invalido!");
     return true;
 }
 bool Codigo::setValor(int valor){
@@ -19,7 +20,7 @@ bool Codigo::setValor(int valor){
     this->valor = valor;
     return true;
 }
-//Metodos Classe CodigoNegociacao
+//Metodos Classe Dominio CodigoNegociacao - Carlos Eduardo 241004659
 bool CodigoNegociacao::validar(string valor){
     int cont = 0;
     if(size(valor)<=LIMITE){
@@ -27,7 +28,7 @@ bool CodigoNegociacao::validar(string valor){
             if(isalpha(valor[cont])||valor[cont]==' '||isdigit(valor[cont])){
                 cont++;
             }else{
-                cout<<"**CODIGO INVALIDO***";
+                throw invalid_argument("Valor Invalido!");
                 return false;
             }
         }
@@ -36,13 +37,13 @@ bool CodigoNegociacao::validar(string valor){
 }
 bool CodigoNegociacao::setValor(string valor){
     if(!validar(valor)){
+        throw invalid_argument("Valor Invalido!");
         return false;
     }
     this->valor=valor;
     return true;
 }
-//Metodos Classe Perfil
-
+//Metodos Classe Dominio Perfil - Carlos Eduardo 241004659
 bool Perfil::validar(string valor){
     if(valor=="Conservador"||valor=="Moderado"||valor=="Agressivo"){
         return true;
@@ -51,11 +52,42 @@ bool Perfil::validar(string valor){
 }
 bool Perfil::setValor(string valor){
     if(!validar(valor)){
+        throw invalid_argument("Valor Invalido!");
         return false;
     }
     this->valor=valor;
     return true;
 }
+//Metodos Classe Dominio Senha- Carlos Eduardo 241004659
+bool Senha::validar(string valor){
+    int cont = 0;
+    if(size(valor)>=0&&size(valor)<=LIMITE){
+        while (cont<size(valor)) {
+            if(isalpha(valor[cont])||isdigit(valor[cont])||valor[cont]=='$'||valor[cont]=='%'||valor[cont]=='&'||valor[cont]=='#'){
+                cont++;
+            }else{
+                cout<<"**SENHA INVÁLIDA***"<<endl;
+                return false;
+            }
+        }
+        for (int c = 0; c<=size(valor); c++) {
+            for (int s = c+1; s<=size(valor); s++) {
+                if(valor[c]==valor[s]){
+                    throw invalid_argument("Valor Invalido!");
+                }
+            }
+        }
+    }
+    return true;
+}
+bool Senha::setValor(string valor){
+    if(!validar(valor)){
+        return false;
+    }
+    this->valor=valor;
+    return true;
+}
+
 
 // Métodos: Qauntidade / Luiz Carlos - 241004560
 bool Quantidade::validar(float valor){
