@@ -63,7 +63,7 @@ bool Senha::validar(string valor){
     int cont = 0;
     if(size(valor)>=0&&size(valor)<=LIMITE){
         while (cont<size(valor)) {
-            if(isalpha(valor[cont])||isdigit(valor[cont])||valor[cont]=='$'||valor[cont]=='%'||valor[cont]=='&'||valor[cont]=='#'){
+            if(isalpha(valor[cont])||isdigit(valor[cont])||valor[cont]=='$'||valor[cont]=='%'||valor[cont]=='&'||valor[cont]=='#'||valor[cont]==' '){
                 cont++;
             }else{
                 cout<<"**SENHA INVÁLIDA***"<<endl;
