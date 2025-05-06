@@ -42,5 +42,8 @@ int main(int argc, const char * argv[]) {
     Perfil p;
     p.setValor("Conservador");
     cout<<p.getValor()<<endl;
+    Senha s;
+    s.setValor(";");
+    cout<<"A senha é "<<s.getValor()<<endl;
     return 0;
 }
