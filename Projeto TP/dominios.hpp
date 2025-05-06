@@ -5,7 +5,7 @@
 #include <string>
 #include <set>
 using namespace std;
-//Classe Codigo
+//Classe Dominio Codigo - Carlos Eduardo 241004659
 class Codigo{
 private:
     static const int LIMITEMAX = 99999;
@@ -20,7 +20,7 @@ public:
 inline int Codigo::getValor(){
     return valor;
 }
-//Classe Codigo de Negociacao
+//Classe Dominio Codigo de Negociacao - Carlos Eduardo 241004659
 class CodigoNegociacao{
 private:
     static const int LIMITE = 12;
@@ -34,7 +34,7 @@ public:
 inline string CodigoNegociacao::getValor(){
     return valor;
 }
-//Classe Perfil
+//Classe Dominio Perfil - Carlos Eduardo 241004659
 class Perfil{
 private:
     string valor;
@@ -46,10 +46,20 @@ public:
 inline string Perfil::getValor(){
     return valor;
 }
-//Classe Senha
+//Classe Dominio Senha - Carlos Eduardo 241004659
 class Senha{
-
+private:
+    static int const LIMITE = 6;
+    string valor;
+    bool validar(string);
+public:
+    bool setValor(string);
+    string getValor();
 };
+inline string Senha::getValor(){
+    return valor;
+}
+
 
 //Domínio: Quantidade / Luiz Carlos - 241004560
 class Quantidade {
