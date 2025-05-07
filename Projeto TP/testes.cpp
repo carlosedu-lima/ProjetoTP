@@ -1,5 +1,5 @@
 #include "testes.hpp"
-
+// Métodos teste Dinheiro / Luiz Carlos - 241004560
 void TUDinheiro::setUp(){
     dinheiro = new Dinheiro();
     estado = SUCESSO;
