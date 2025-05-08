@@ -1,14 +1,8 @@
-//
-//  main.cpp
-//  Projeto TP
-//
-//  Created by Carlos Eduardo Figueredo Lima on 26/04/25.
-//
-
 #include <iostream>
 #include <string>
 #include <cctype>
 #include "dominios.hpp"
+#include "entidades.hpp"
 using namespace std;
 int main(int argc, const char * argv[]) {
     // IMPLEMENTACAO
@@ -36,14 +30,48 @@ int main(int argc, const char * argv[]) {
 //        }
 //        cont=cont+1;
 //    }
-    CodigoNegociacao c;
-    c.setValor("Kdu12");
-    cout<<c.getValor()<<endl;
-    Perfil p;
-    p.setValor("Conservador");
-    cout<<p.getValor()<<endl;
+//    CodigoNegociacao c;
+//    c.setValor("Kdu12");
+//    cout<<c.getValor()<<endl;
+//    Perfil p;
+//    p.setValor("Conservador");
+//    cout<<p.getValor()<<endl;
+//    Senha s;
+//    s.setValor(";");
+//    cout<<"A senha é "<<s.getValor()<<endl;
+    Conta conta;
+    CPF c;
+    Nome n;
     Senha s;
-    s.setValor(";");
-    cout<<"A senha é "<<s.getValor()<<endl;
+    
+    c.setCPF("07676639182");
+    n.setNome("Carlos Eduardo");
+    s.setValor("Kdu25#");
+    
+    conta.setCPF(c);
+    conta.setNome(n);
+    conta.setSenha(s);
+    
+    cout<<conta.getCPF().getCPF()<<endl;
+    cout<<conta.getNome().getNome()<<endl;
+    cout<<conta.getSenha().getValor()<<endl;
+    
+    Carteira carteira;
+    
+    Codigo codigo;
+    Perfil p;
+    
+    codigo.setValor(123);
+    p.setValor("Conservador");
+    
+    carteira.setNome(n);
+    carteira.setCodigo(codigo);
+    carteira.setPerfil(p);
+    
+    cout<<carteira.getCodigo().getValor()<<endl;
+    cout<<carteira.getNome().getNome()<<endl;
+    cout<<carteira.getPerfil().getValor()<<endl;
+    
+    
     return 0;
 }
