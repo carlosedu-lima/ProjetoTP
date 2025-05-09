@@ -1,4 +1,6 @@
 #include "testes.hpp"
+#include <sstream>
+#include <iomanip>
 
 /// Métodos teste Dinheiro / Luiz Carlos - 241004560
 void TUDinheiro::setUp(){
@@ -15,7 +17,7 @@ void TUDinheiro::testarCenarioValorValido(){
         if(dinheiro->getValor()!= VALOR_VALIDO)
             estado = FALHA;
     }
-    catch(invalid_argument e){
+    catch(invalid_argument){
         estado = FALHA;
     }
     catch(...){
@@ -87,6 +89,57 @@ void TUQuantidade::testarCenarioValorInvalido(){
 }
 
 int TUQuantidade::run(){
+    setUp();
+    testarCenarioValorValido();
+    testarCenarioValorInvalido();
+    tearDown();
+    return estado;
+}
+
+/// Métodos teste Data / Luiz Carlos - 241004560
+void TUData::setUp(){
+    data = new Data();
+    estado = SUCESSO;
+}
+void TUData::tearDown(){
+    delete data;
+}
+
+void TUData::testarCenarioValorValido(){
+    try{
+        data->setData(VALOR_VALIDO_ANO, VALOR_VALIDO_MES, VALOR_VALIDO_DIA);
+        ostringstream oss;
+        oss << VALOR_VALIDO_ANO << "/"<< setw(2) << setfill('0') << VALOR_VALIDO_MES << "/" << setw(2) << setfill('0') << VALOR_VALIDO_DIA;
+        if(data->getData()!= oss.str())
+            estado = FALHA;
+    }
+    catch(invalid_argument){
+        estado = FALHA;
+    }
+    catch(...){
+        cout << "Erro: Exceção inesperada!" << endl;
+        estado = FALHA;
+    }
+}
+
+void TUData::testarCenarioValorInvalido(){
+    try{
+        data->setData(VALOR_INVALIDO_ANO, VALOR_INVALIDO_MES, VALOR_INVALIDO_DIA);
+        estado = FALHA;
+    }
+    catch(invalid_argument){
+        ostringstream oss;
+        oss << VALOR_INVALIDO_ANO << "/"<< setw(2) << setfill('0') << VALOR_INVALIDO_MES << "/" << setw(2) << setfill('0') << VALOR_INVALIDO_DIA;
+        if(data->getData()== oss.str())
+            estado = FALHA;
+    }
+    catch(...){
+        cout << "Erro: Exceção inesperada!" << endl;
+        estado = FALHA;
+    }
+}
+
+int TUData::run(){
     setUp();
     testarCenarioValorValido();
     testarCenarioValorInvalido();
