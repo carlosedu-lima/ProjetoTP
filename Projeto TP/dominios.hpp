@@ -1,155 +1,201 @@
-#ifndef dominios_hpp
-#define dominios_hpp
-
-#include <stdio.h>
+#include <iostream>
 #include <string>
-#include <set>
+#include <cctype>
+#include "dominios.hpp"
+#include <sstream> // string stream: biblioteca que permite manipular strings como se fossem entrada/saída.
+#include <iomanip> // input/output manipulators: biblioteca que funciona em conjunto com a sstream para manipular strings.
+#include <regex> // expressões regulares
+#include <stdexcept>
+
 using namespace std;
-//Classe Dominio Codigo - Carlos Eduardo 241004659
-class Codigo{
-private:
-    static const int LIMITEMAX = 99999;
-    static const int LIMITEMIN = 0;
-    int valor;
-    bool validar(int);
-public:
-    bool setValor(int);
-    int getValor();
-};
-
-inline int Codigo::getValor(){
-    return valor;
+//Metodos Classe Dominio Codigo - Carlos Eduardo 241004659
+bool Codigo::validar(int valor){
+    if(valor>LIMITEMAX||valor<LIMITEMIN)
+        throw invalid_argument("Valor Invalido!");
+    return true;
 }
-//Classe Dominio Codigo de Negociacao - Carlos Eduardo 241004659
-class CodigoNegociacao{
-private:
-    static const int LIMITE = 12;
-    string valor;
-    bool validar(string);
-public:
-    bool setValor(string);
-    string getValor();
-};
-
-inline string CodigoNegociacao::getValor(){
-    return valor;
+bool Codigo::setValor(int valor){
+    if(!validar(valor))
+        return false;
+    this->valor = valor;
+    return true;
 }
-//Classe Dominio Perfil - Carlos Eduardo 241004659
-class Perfil{
-private:
-    string valor;
-    bool validar(string);
-public:
-    bool setValor(string);
-    string getValor();
-};
-inline string Perfil::getValor(){
-    return valor;
+//Metodos Classe Dominio CodigoNegociacao - Carlos Eduardo 241004659
+bool CodigoNegociacao::validar(string valor){
+    int cont = 0;
+    if(size(valor)<=LIMITE){
+        while (cont<size(valor)) {
+            if(isalpha(valor[cont])||valor[cont]==' '||isdigit(valor[cont])){
+                cont++;
+            }else{
+                throw invalid_argument("Valor Invalido!");
+                return false;
+            }
+        }
+    }
+    return true;
 }
-//Classe Dominio Senha - Carlos Eduardo 241004659
-class Senha{
-private:
-    static int const LIMITE = 6;
-    string valor;
-    bool validar(string);
-public:
-    bool setValor(string);
-    string getValor();
-};
-inline string Senha::getValor(){
-    return valor;
+bool CodigoNegociacao::setValor(string valor){
+    if(!validar(valor)){
+        throw invalid_argument("Valor Invalido!");
+        return false;
+    }
+    this->valor=valor;
+    return true;
 }
-
-
-//Domínio: Quantidade / Luiz Carlos - 241004560
-class Quantidade {
-private:
-    static constexpr float LIMITE_MAX = 1000000;
-    static constexpr float LIMITE_MIN = 0.01;
-    float valor;
-    bool validar(float);
-public:
-    bool setValor(float);
-    float getValor();
-
-};
-
-inline float Quantidade::getValor(){
-    return valor;
-
-};
-
-// Domínio: Dinheiro / Luiz Carlos - 241004560
-class Dinheiro {
-private:
-    static const int LIMITE_MAX = 1000000;
-    static const int LIMITE_MIN = 1;
-    int valor;
-    bool validar(int);
-public:
-    bool setValor(int);
-    int getValor();
-
-};
-
-inline int Dinheiro::getValor(){
-    return valor;
-
-};
-
-// Domínio: Data / Luiz Carlos - 241004560
-class Data {
-private:
-
-    static const int LIMITE_MAX_ANO = 2025;
-    static const int LIMITE_MIN_ANO = 1;
-    static const int LIMITE_MAX_MES = 12;
-    static const int LIMITE_MIN_MES = 1;
-    static const int LIMITE_MAX_DIA = 31;
-    static const int LIMITE_MIN_DIA = 1;
-    int ano, mes, dia;
-    string data;
-    bool validarData(int, int, int);
-
-public:
-    bool setData(int, int, int);
-    string getData();
-};
-
-inline string Data::getData(){
-    return data;}
-
-// Dominio: Nome / Luiz Carlos - 241004560
-class Nome {
-private:
-    string nome;
-    static const int LIMITE_CHAR_MAX = 20;
-    static const int LIMITE_CHAR_MIN = 1;
-    bool validarNome(string);
-public:
-    bool setNome(string);
-    string getNome();
-};
-
-inline string Nome::getNome(){
-    return nome;
+//Metodos Classe Dominio Perfil - Carlos Eduardo 241004659
+bool Perfil::validar(string valor){
+    if(valor=="Conservador"||valor=="Moderado"||valor=="Agressivo"){
+        return true;
+    }
+    return false;
+}
+bool Perfil::setValor(string valor){
+    if(!validar(valor)){
+        throw invalid_argument("Valor Invalido!");
+        return false;
+    }
+    this->valor=valor;
+    return true;
+}
+//Metodos Classe Dominio Senha- Carlos Eduardo 241004659
+bool Senha::validar(string valor){
+    int cont = 0;
+    if(size(valor)>=0&&size(valor)<=LIMITE){
+        while (cont<size(valor)) {
+            if(isalpha(valor[cont])||isdigit(valor[cont])||valor[cont]=='$'||valor[cont]=='%'||valor[cont]=='&'||valor[cont]=='#'||valor[cont]==' '){
+                cont++;
+            }else{
+                cout<<"**SENHA INVÁLIDA***"<<endl;
+                return false;
+            }
+        }
+        for (int c = 0; c<=size(valor); c++) {
+            for (int s = c+1; s<=size(valor); s++) {
+                if(valor[c]==valor[s]){
+                    throw invalid_argument("Valor Invalido!");
+                }
+            }
+        }
+    }
+    return true;
+}
+bool Senha::setValor(string valor){
+    if(!validar(valor)){
+        return false;
+    }
+    this->valor=valor;
+    return true;
 }
 
-//Dominio: CPF / Luiz Carlos - 241004560
 
-class CPF {
-private:
-    static const int TAMANHO = 11;
-    string cpf;
-    bool validarCPF(string);
-    static set<string> cpfsCadastrados;
-public:
-    bool setCPF(string);
-    string getCPF();
-
-};
-
-inline string CPF::getCPF(){
-    return cpf;
+// Métodos: Qauntidade / Luiz Carlos - 241004560
+bool Quantidade::validar(float valor){
+    if (valor > LIMITE_MAX)
+        throw invalid_argument("Valor acima do Limite.");
+    if (valor < LIMITE_MIN)
+        throw invalid_argument("Valor abaixo do Limite.");
+    return true;
 }
-#endif /* dominios_hpp */
+
+bool Quantidade::setValor(float valor){
+    if (validar(valor)){
+            this->valor = valor;
+            return true;}
+
+    else
+        return false;
+}
+
+// Métodos: Dinheiro / Luiz Carlos - 241004560
+
+bool Dinheiro::validar(int valor){
+    if (valor > LIMITE_MAX)
+        throw invalid_argument("Valor acima do Limite.");
+    if (valor < LIMITE_MIN)
+        throw invalid_argument("Valor abaixo do Limite.");
+    return true;
+}
+
+bool Dinheiro::setValor(int valor){
+    if (validar(valor)){
+        this->valor = valor;
+        return true;}
+
+    else
+        return false;
+}
+
+// Métodos: Data / Luiz Carlos - 241004560
+
+bool Data::validarData(int ano, int mes, int dia) {
+    if (ano > LIMITE_MAX_ANO || ano < LIMITE_MIN_ANO)
+        throw invalid_argument("Data invalida.");
+    if (mes > LIMITE_MAX_MES || ano < LIMITE_MIN_MES)
+        throw invalid_argument("Data invalida.");
+    if (dia > LIMITE_MAX_DIA || ano < LIMITE_MIN_DIA)
+        throw invalid_argument("Data invalida.");
+    return true;
+}
+
+bool Data::setData(int ano, int mes, int dia) {
+    if (validarData(ano, mes, dia)){
+        this->ano = ano;
+        this->mes = mes;
+        this->dia = dia;
+        ostringstream oss; // classe 'ostringstream' da biblioteca sstream, objeto temporario 'oss' para formatar a string
+        oss << ano << "/"<< setw(2) << setfill('0') << mes << "/" << setw(2) << setfill('0') << dia; // setw(): método da biblioteca <iomanip> uqe ajusta a largura. setfill(): método que ajusta o preenchimento. Funciona como uma f-string.
+        this->data = oss.str(); // atribuição do objeto temporário 'oss' ja formatado e transformado em string ao objeto permanente 'string data'.
+        return true;}
+    else{
+        return false;}
+    }
+
+// Métodos: Nome / Luiz Carlos - 241004560
+bool Nome::validarNome(string nome){
+    if (nome.length() > LIMITE_CHAR_MAX)
+        throw invalid_argument("Caracteres acima do limite.");
+    if (nome.length() < LIMITE_CHAR_MIN)
+        throw invalid_argument("Caracteres abaixo do limite.");
+// primeiro [] permite letras e numeros, segundo [?:] permite espaços "\\s" se eles tiverem no minimo 1 membro do grupo selecionado  logo depois.
+// ^ começa a string, $ termina a string, []+ indica que deve ter alguem desse grupo depois do \\s, (?:...)* é o grupo de exclusão.
+    regex padrao("^[A-Za-zÀ-ÖØ-öø-ÿ0-9]+(?:\\s[A-Za-zÀ-ÖØ-öø-ÿ0-9]+)*$");
+    if (regex_match(nome,padrao))
+        return true;
+    throw invalid_argument("Nome invalido.");
+}
+
+bool Nome::setNome(string nome){
+    if (!validarNome(nome))
+        return false;
+    this->nome = nome;
+    return true;
+}
+// Métodos: CPF / Luiz Carlos - 241004560
+
+bool CPF::validarCPF(string cpf){
+    if (cpf.size() == TAMANHO){
+        if (cpfsCadastrados.count(cpf)){
+            throw invalid_argument("CPF ja Cadastrado!");}
+            else
+                return true;
+    }
+    else
+        throw invalid_argument("CPF Invalido!");
+}
+set<string> CPF::cpfsCadastrados; // Inicialização do set declarado na classe CPF
+bool CPF::setCPF(string cpf){
+    string num3;
+    string num6;
+    string num9;
+    string num11;
+    if (validarCPF(cpf)){
+        num3 = cpf.substr(0, 3);
+        num6 = cpf.substr(3, 3);
+        num9 = cpf.substr(6, 3);
+        num11 = cpf.substr(9);
+        this->cpf = num3 + '.' + num6 + '.' + num9 + '-' + num11;
+        cpfsCadastrados.insert(cpf);
+        return true;}
+    return false;
+    }
