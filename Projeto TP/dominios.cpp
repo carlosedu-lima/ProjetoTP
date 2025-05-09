@@ -117,11 +117,12 @@ bool Dinheiro::validar(int valor){
 }
 
 bool Dinheiro::setValor(int valor){
-    if (!validar(valor)){
-        return false;}
+    if (validar(valor)){
+        this->valor = valor;
+        return true;}
 
-    this->valor = valor;
-    return true;
+    else
+        return false;
 }
 
 // Métodos: Data / Luiz Carlos - 241004560
