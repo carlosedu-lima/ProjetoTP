@@ -11,11 +11,50 @@ private:
     Codigo codigo;
     CodigoNegociacao codigonegociacao;
     Data data;
-    Dinheiro preço;
+    Dinheiro preco;
     Quantidade quantidade;
 public:
-    // Metodos
+    void setCodigo(Codigo);
+    Codigo getCodigo();
+    void setCodigoNegociacao(CodigoNegociacao);
+    CodigoNegociacao getCodigoNeociacao();
+    void setData(Data);
+    Data getData();
+    void setPreco(Dinheiro);
+    Dinheiro getPreco();
+    void setQuantidade(Quantidade);
+    Quantidade getQuantidade();
 };
+inline void Ordem::setCodigo(Codigo codigo){
+    this->codigo = codigo;
+}
+inline Codigo Ordem::getCodigo(){
+    return codigo;
+}
+inline void Ordem::setCodigoNegociacao(CodigoNegociacao codigonegociacao){
+    this->codigonegociacao = codigonegociacao;
+}
+inline CodigoNegociacao Ordem::getCodigoNeociacao(){
+    return codigonegociacao;
+}
+inline void Ordem::setData(Data data){
+    this->data = data;
+}
+inline Data Ordem::getData(){
+    return data;
+}
+inline void Ordem::setPreco(Dinheiro preco){
+    this->preco = preco;
+}
+inline Dinheiro Ordem::getPreco(){
+    return preco;
+}
+inline void Ordem::setQuantidade(Quantidade quantidade){
+    this->quantidade = quantidade;
+}
+inline Quantidade Ordem::getQuantidade(){
+    return quantidade;
+}
 //Classe e Metodos Entidade Conta - Carlos Eduardo 241004659
 class Conta{
 private:
