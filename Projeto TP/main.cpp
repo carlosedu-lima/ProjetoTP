@@ -3,6 +3,7 @@
 #include <cctype>
 #include "dominios.hpp"
 #include "entidades.hpp"
+#include "testes.hpp"
 #include "testes.cpp"
 using namespace std;
 //int main(int argc, const char * argv[]) {
@@ -92,6 +93,13 @@ int main(){
         case TUQuantidade::SUCESSO: cout << "Teste Dominio Quantidade: SUCESSO" << endl;
         break;
         case TUQuantidade::FALHA : cout << "Teste Dominio Quantidade: FALHA" << endl;
+        break;
+        }
+    TUData testeData;
+    switch(testeData.run()){
+        case TUData::SUCESSO: cout << "Teste Dominio Data: SUCESSO" << endl;
+        break;
+        case TUData::FALHA : cout << "Teste Dominio Data: FALHA" << endl;
         break;
         }
         return 0;
