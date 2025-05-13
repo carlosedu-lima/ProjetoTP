@@ -147,7 +147,7 @@ public:
 class TUCpf{
     private:
     constexpr static string VALOR_VALIDO = "12345678909";
-    constexpr static string VALOR_INVALIDO = "1234";
+    constexpr static string VALOR_INVALIDO = "1234567890k";
     CPF *cpf;
     int estado;
     void setUp();
