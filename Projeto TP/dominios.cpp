@@ -99,11 +99,12 @@ bool Quantidade::validar(float valor){
 }
 
 bool Quantidade::setValor(float valor){
-    if (!validar(valor)){
-        return false;}
+    if (validar(valor)){
+            this->valor = valor;
+            return true;}
 
-    this->valor = valor;
-    return true;
+    else
+        return false;
 }
 
 // Métodos: Dinheiro / Luiz Carlos - 241004560
@@ -138,15 +139,17 @@ bool Data::validarData(int ano, int mes, int dia) {
 }
 
 bool Data::setData(int ano, int mes, int dia) {
-    if (!validarData(ano, mes, dia))
-        return false;
-    this->ano = ano;
-    this->mes = mes;
-    this->dia = dia;
-    ostringstream oss; // classe 'ostringstream' da biblioteca sstream, objeto temporario 'oss' para formatar a string
-    oss << ano << "/"<< setw(2) << setfill('0') << mes << "/" << setw(2) << setfill('0') << dia; // setw(): método da biblioteca <iomanip> uqe ajusta a largura. setfill(): método que ajusta o preenchimento. Funciona como uma f-string.
-    this->data = oss.str(); // atribuição do objeto temporário 'oss' ja formatado e transformado em string ao objeto permanente 'string data'.
-    return true;}
+    if (validarData(ano, mes, dia)){
+        this->ano = ano;
+        this->mes = mes;
+        this->dia = dia;
+        ostringstream oss; // classe 'ostringstream' da biblioteca sstream, objeto temporario 'oss' para formatar a string
+        oss << ano << "/"<< setw(2) << setfill('0') << mes << "/" << setw(2) << setfill('0') << dia; // setw(): método da biblioteca <iomanip> uqe ajusta a largura. setfill(): método que ajusta o preenchimento. Funciona como uma f-string.
+        this->data = oss.str(); // atribuição do objeto temporário 'oss' ja formatado e transformado em string ao objeto permanente 'string data'.
+        return true;}
+    else{
+        return false;}
+    }
 
 // Métodos: Nome / Luiz Carlos - 241004560
 bool Nome::validarNome(string nome){
