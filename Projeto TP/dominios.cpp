@@ -175,9 +175,18 @@ bool Nome::setNome(string nome){
 // Métodos: CPF / Luiz Carlos - 241004560
 
 bool CPF::validarCPF(string cpf){
+    int cont = 0;
     if (cpf.size() == TAMANHO){
-        if (cpfsCadastrados.count(cpf)){
-            throw invalid_argument("CPF ja Cadastrado!");}
+        while (cont<size(cpf)){
+            if(!isdigit(cpf[cont])){
+                throw invalid_argument("Caractere Invalido!");}
+            else{
+                cont++;
+            }
+
+        }
+            if (cpfsCadastrados.count(cpf)){
+                throw invalid_argument("CPF ja Cadastrado!");}
             else
                 return true;
     }
