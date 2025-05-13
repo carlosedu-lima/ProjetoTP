@@ -146,3 +146,122 @@ int TUData::run(){
     tearDown();
     return estado;
 }
+
+/// Métodos teste Nome / Luiz Carlos - 241004560
+void TUNome::setUp(){
+    nome = new Nome();
+    estado = SUCESSO;
+}
+void TUNome::tearDown(){
+    delete nome;
+}
+
+void TUNome::testarCenarioValorValido(){
+    try{
+        nome->setNome(VALOR_VALIDO);
+        if(nome->getNome()!= VALOR_VALIDO)
+            estado = FALHA;
+    }
+    catch(invalid_argument e){
+        estado = FALHA;
+    }
+    catch(...){
+        cout << "Erro: Exceção inesperada!" << endl;
+        estado = FALHA;
+    }
+}
+
+void TUNome::testarCenarioValorInvalido(){
+    try{
+        nome->setNome(VALOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(invalid_argument){
+        if(nome->getNome() == VALOR_INVALIDO)
+            estado = FALHA;
+    }
+    catch(...){
+        cout << "Erro: Exceção inesperada!" << endl;
+        estado = FALHA;
+    }
+}
+
+int TUNome::run(){
+    setUp();
+    testarCenarioValorValido();
+    testarCenarioValorInvalido();
+    tearDown();
+    return estado;
+}
+
+/// Métodos teste CPF / Luiz Carlos - 241004560
+void TUCpf::setUp(){
+    cpf = new CPF();
+    estado = SUCESSO;
+}
+void TUCpf::tearDown(){
+    delete cpf;
+}
+
+void TUCpf::testarCenarioValorValido(){
+    try{
+        cpf->setCPF(VALOR_VALIDO);
+        string cpftemp;
+        string num3;
+        string num6;
+        string num9;
+        string num11;
+        num3 = VALOR_VALIDO.substr(0, 3);
+        num6 = VALOR_VALIDO.substr(3, 3);
+        num9 = VALOR_VALIDO.substr(6, 3);
+        num11 = VALOR_VALIDO.substr(9);
+        cpftemp = num3 + '.' + num6 + '.' + num9 + '-' + num11;
+        if(cpf->getCPF()!= cpftemp)
+            estado = FALHA;
+    }
+    catch(invalid_argument e){
+        estado = FALHA;
+    }
+    catch(...){
+        cout << "Erro: Exceção inesperada!" << endl;
+        estado = FALHA;
+    }
+}
+
+void TUCpf::testarCenarioValorInvalido(){
+    try{
+        cpf->setCPF(VALOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(invalid_argument){
+        string cpftemp;
+        string num3;
+        string num6;
+        string num9;
+        string num11;
+        if(VALOR_INVALIDO.size() == 11){
+            num3 = VALOR_INVALIDO.substr(0, 3);
+            num6 = VALOR_INVALIDO.substr(3, 3);
+            num9 = VALOR_INVALIDO.substr(6, 3);
+            num11 = VALOR_INVALIDO.substr(9);
+            cpftemp = num3 + '.' + num6 + '.' + num9 + '-' + num11;
+            if(cpf->getCPF() == cpftemp)
+                estado = FALHA;}
+        else{
+            if(cpf->getCPF() == VALOR_INVALIDO)
+                estado = FALHA;
+        }
+    }
+    catch(...){
+        cout << "Erro: Exceção inesperada!" << endl;
+        estado = FALHA;
+    }
+}
+
+int TUCpf::run(){
+    setUp();
+    testarCenarioValorValido();
+    testarCenarioValorInvalido();
+    tearDown();
+    return estado;
+}
