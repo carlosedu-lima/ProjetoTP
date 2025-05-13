@@ -166,10 +166,11 @@ bool Nome::validarNome(string nome){
 }
 
 bool Nome::setNome(string nome){
-    if (!validarNome(nome))
-        return false;
-    this->nome = nome;
-    return true;
+    if (validarNome(nome)){
+        this-> nome = nome;
+        return true;}
+    else{
+        return false;}
 }
 // Métodos: CPF / Luiz Carlos - 241004560
 
