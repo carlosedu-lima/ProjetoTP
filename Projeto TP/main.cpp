@@ -102,5 +102,19 @@ int main(){
         case TUData::FALHA : cout << "Teste Dominio Data: FALHA" << endl;
         break;
         }
+    TUNome testeNome;
+    switch(testeNome.run()){
+        case TUNome::SUCESSO: cout << "Teste Dominio Nome: SUCESSO" << endl;
+        break;
+        case TUNome::FALHA : cout << "Teste Dominio Nome: FALHA" << endl;
+        break;
+        }
+    TUCpf testeCpf;
+    switch(testeCpf.run()){
+        case TUCpf::SUCESSO: cout << "Teste Dominio CPF: SUCESSO" << endl;
+        break;
+        case TUCpf::FALHA : cout << "Teste Dominio CPF: FALHA" << endl;
+        break;
+        }
         return 0;
 }
