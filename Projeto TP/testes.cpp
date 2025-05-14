@@ -265,3 +265,51 @@ int TUCpf::run(){
     tearDown();
     return estado;
 }
+
+/// Métodos teste Ordem / Luiz Carlos - 241004560
+
+void TUOrdem::setUP(){
+    ordem = new Ordem();
+    estado = SUCESSO;
+}
+
+void TUOrdem::tearDown(){
+    delete ordem;
+}
+
+void TUOrdem::testarCenario(){
+    Codigo c;
+    c.setValor(VALOR_VALIDO_C);
+    ordem->setCodigo(c);
+    if(ordem->getCodigo().getValor() != VALOR_VALIDO_C)
+        estado = FALHA;
+    CodigoNegociacao cn;
+    cn.setValor(VALOR_VALIDO_CN);
+    ordem->setCodigoNegociacao(cn);
+    if(ordem->getCodigoNeociacao().getValor() != VALOR_VALIDO_CN)
+        estado = FALHA;
+    Data d;
+    d.setData(VALOR_VALIDO_ANO, VALOR_VALIDO_MES, VALOR_VALIDO_DIA);
+    ordem->setData(d);
+    ostringstream datatemp;
+    datatemp << VALOR_VALIDO_ANO << "/"<< setw(2) << setfill('0') << VALOR_VALIDO_MES << "/" << setw(2) << setfill('0') << VALOR_VALIDO_DIA;
+    if (ordem->getData().getData() != datatemp.str())
+        estado = FALHA;
+    Dinheiro p;
+    p.setValor(VALOR_VALIDO_P);
+    ordem->setPreco(p);
+    if(ordem->getPreco().getValor() != VALOR_VALIDO_P)
+        estado = FALHA;
+    Quantidade qt;
+    qt.setValor(VALOR_VALIDO_Qt);
+    ordem->setQuantidade(qt);
+    if(ordem->getQuantidade().getValor() != VALOR_VALIDO_Qt)
+        estado = FALHA;
+}
+
+int TUOrdem::run(){
+    setUP();
+    testarCenario();
+    tearDown();
+    return estado;
+}
