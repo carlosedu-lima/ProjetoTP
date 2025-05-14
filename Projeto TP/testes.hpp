@@ -130,8 +130,8 @@ public:
 /// TESTE Dominio: Nome // Luiz Carlos - 241004560
 class TUNome{
     private:
-    constexpr static string VALOR_VALIDO = "Nome Sobrenome9";
-    constexpr static string VALOR_INVALIDO = "Nome  Sob";
+    const static string VALOR_VALIDO;
+    const static string VALOR_INVALIDO;
     Nome *nome;
     int estado;
     void setUp();
@@ -143,11 +143,13 @@ public:
     const static int FALHA = -1;
     int run();
 };
+const string TUNome::VALOR_VALIDO = "Nome Sobrenome9";
+const string TUNome::VALOR_INVALIDO = "Nome  Sob";
 /// TESTE Dominio: CPF // Luiz Carlos - 241004560
 class TUCpf{
     private:
-    constexpr static string VALOR_VALIDO = "12345678909";
-    constexpr static string VALOR_INVALIDO = "1234567890k";
+    const static string VALOR_VALIDO;
+    const static string VALOR_INVALIDO ;
     CPF *cpf;
     int estado;
     void setUp();
@@ -159,5 +161,6 @@ public:
     const static int FALHA = -1;
     int run();
 };
-
+const string TUCpf::VALOR_VALIDO = "12345678909";
+const string TUCpf::VALOR_INVALIDO = "1234567890k";
 #endif // TESTES_HPP_INCLUDED
