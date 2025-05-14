@@ -116,5 +116,12 @@ int main(){
         case TUCpf::FALHA : cout << "Teste Dominio CPF: FALHA" << endl;
         break;
         }
+    TUOrdem testeOrdem;
+    switch(testeOrdem.run()){
+        case TUOrdem::SUCESSO: cout << "Teste Entidade Ordem: SUCESSO" << endl;
+        break;
+        case TUOrdem::FALHA: cout << "Teste Entidade Ordem: FALHA" << endl;
+        break;
+    }
         return 0;
 }
