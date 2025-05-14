@@ -163,4 +163,27 @@ public:
 };
 const string TUCpf::VALOR_VALIDO = "12345678909";
 const string TUCpf::VALOR_INVALIDO = "1234567890k";
+/// TESTE Entidade: Ordem // Luiz Carlos - 241004560
+class TUOrdem {
+private:
+
+    const static int VALOR_VALIDO_C = 1000;
+    const static string VALOR_VALIDO_CN;
+    const static int VALOR_VALIDO_ANO = 1998;
+    const static int VALOR_VALIDO_MES = 3 ;
+    const static int VALOR_VALIDO_DIA = 9 ;
+    const static int VALOR_VALIDO_P = 1000;
+    constexpr static float VALOR_VALIDO_Qt = 1000;
+    Ordem *ordem;
+    int estado;
+    void setUP();
+    void tearDown();
+    void testarCenario();
+
+public:
+    const static int SUCESSO = 0;
+    const static int FALHA = -1;
+    int run();
+    };
+const string TUOrdem::VALOR_VALIDO_CN = "tT0 9";
 #endif // TESTES_HPP_INCLUDED
