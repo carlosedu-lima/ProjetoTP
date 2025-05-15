@@ -61,15 +61,29 @@ inline string Senha::getValor(){
 }
 
 
-//Domínio: Quantidade / Luiz Carlos - 241004560
+//--------------------DOCUMENTAÇÃO EM ANDAMENTO------------------------------------------
+
+///Domínio: Quantidade / Luiz Carlos - 241004560
+/// @param Recebe um valor Float para ser validado e armazenado.
+/// @brief Dominio quantidade, cria um limite min/max para quantidades
 class Quantidade {
 private:
+    /// @param Constante de controle do limite maximo.
     static constexpr float LIMITE_MAX = 1000000;
+    /// @param Constante de controle do limite minimo.
     static constexpr float LIMITE_MIN = 0.01;
+    /// @param Um valor float, que representa a quantidade.
     float valor;
+    /// @param Um valor float, que representa a quantidade a ser validada.
+    /// @brief Compara o valor recebido com as constantes de controle.
+    /// @return True caso o valor seja validado, False caso o contrario.
     bool validar(float);
 public:
+    /// @param Um valor float, que representa a quatidade a ser armazenada.
+    /// @brief Chama a função validar, caso validado, armazena o valor.
+    /// @return True se o valor for armazenado, False caso o contrario.
     bool setValor(float);
+    /// @return Retorna o valor armazenado.
     float getValor();
 
 };
@@ -79,15 +93,27 @@ inline float Quantidade::getValor(){
 
 };
 
-// Domínio: Dinheiro / Luiz Carlos - 241004560
+
+/// Domínio: Dinheiro / Luiz Carlos - 241004560
+/// @brief Dominio Dinheiro, recebe um inteiro, verifica se segue o padrão designado e armazena ele.
 class Dinheiro {
 private:
+    /// @param Constante de controle, limita o maximo de dinheiro.
     static const int LIMITE_MAX = 1000000;
+    /// @param Constante de controle, limita o minimo de dinheiro.
     static const int LIMITE_MIN = 1;
+    /// @param Valor a ser armazenado, representa o Dinheiro.
     int valor;
+    /// @param Um inteiro representando o dinheiro a ser validado.
+    /// @brief Compara o valor recebido de setValor com as constantes de controle.
+    /// @return True se o valor for validado, False caso o contrario.
     bool validar(int);
 public:
+    /// @param Um inteiro representando o dinheiro a ser armazenado.
+    /// @brief Recebe um inteiro, chama o método validar, e em seguida armazena o valor validado.
+    /// @return True se o valor for armazenado, False caso o contrario.
     bool setValor(int);
+    /// @return Retorna o valor armazenado.
     int getValor();
 
 };
@@ -96,7 +122,7 @@ inline int Dinheiro::getValor(){
     return valor;
 
 };
-//--------------------DOCUMENTAÇÃO EM ANDAMENTO------------------------------------------
+
 /// Domínio: Data / Luiz Carlos - 241004560
 /// @brief Dominio Data, Recebe 3 inteiros, que serão verificados e formatados para atender um padrão de data.
 ///
