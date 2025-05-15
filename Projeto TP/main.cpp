@@ -1,10 +1,12 @@
 #include <iostream>
 #include <string>
+#include <stdexcept>
 #include <cctype>
+
 #include "dominios.hpp"
 #include "entidades.hpp"
 #include "testes.hpp"
-#include "testes.cpp"
+
 using namespace std;
 //int main(int argc, const char * argv[]) {
     // IMPLEMENTACAO
