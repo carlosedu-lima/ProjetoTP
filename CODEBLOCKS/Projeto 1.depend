@@ -1,0 +1,63 @@
+# depslib dependency file v1.0
+1747117909 source:c:\users\luiz carlos\documents\cblocks\projeto 1\dominios.cpp
+	<iostream>
+	<string>
+	<cctype>
+	"dominios.hpp"
+	<sstream>
+	<iomanip>
+	<regex>
+	<stdexcept>
+
+1747117909 >
+
+1747256663 c:\users\luiz carlos\documents\cblocks\projeto 1\dominios.hpp
+	<stdio.h>
+	<string>
+	<set>
+
+1747224939 
+
+1747225127 source:c:\users\luiz carlos\documents\cblocks\projeto 1\main.cpp
+	<iostream>
+	<string>
+	<cctype>
+	"dominios.hpp"
+	"entidades.hpp"
+	"testes.hpp"
+	"testes.cpp"
+
+1747225127 p"
+
+1746819381 c:\users\luiz carlos\documents\cblocks\projeto 1\entidades.hpp
+	"dominios.hpp"
+
+1746819381 hpp"
+
+1747224939 c:\users\luiz carlos\documents\cblocks\projeto 1\testes.cpp
+	"testes.hpp"
+	<sstream>
+	<iomanip>
+
+1747223622 c:\users\luiz carlos\documents\cblocks\projeto 1\testes.hpp
+	<stdexcept>
+	"dominios.hpp"
+	"entidades.hpp"
+
+1747223622 .hpp"
+
+1747107110 source:/media/kdu/PROJETOS/Projeto 1/Projeto 1 - Copia/dominios.cpp
+	<iostream>
+	<string>
+	<cctype>
+	"dominios.hpp"
+	<sstream>
+	<iomanip>
+	<regex>
+	<stdexcept>
+
+1747245994 /media/kdu/PROJETOS/Projeto 1/Projeto 1 - Copia/dominios.hpp
+	<stdio.h>
+	<string>
+	<set>
+
