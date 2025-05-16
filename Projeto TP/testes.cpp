@@ -313,3 +313,158 @@ int TUOrdem::run(){
     tearDown();
     return estado;
 }
+
+// Métodos TUDominio Codigo/ Carlos Eduardo - 241004659
+void TUCodigo::setUp(){
+    codigo = new Codigo();
+    estado = SUCESSO;
+}
+
+void TUCodigo::tearDown(){
+    delete codigo;
+}
+void TUCodigo::testarCenariosValido(){
+    try {
+        codigo->setValor(VALOR_VALIDO);
+        if(codigo->getValor()!=VALOR_VALIDO){
+            estado = FALHA;
+        }
+    } catch (invalid_argument &excecao) {
+        estado = FALHA;
+    }
+}
+void TUCodigo::testarCenarioInvalido(){
+    try{
+        codigo->setValor(VALOR_INVALIDO);
+           estado = FALHA;
+       }
+       catch(invalid_argument &excecao){
+           if(codigo->getValor() == VALOR_INVALIDO)
+               estado = FALHA;
+       }
+}
+int TUCodigo::run(){
+    setUp();
+    testarCenariosValido();
+    testarCenarioInvalido();
+    tearDown();
+    return estado;
+}
+// Métodos TUDominio Codigo Negociaco/ Carlos Eduardo - 241004659
+
+void TUCodigoNegociacao::setUp(){
+    codigoNegociacao = new CodigoNegociacao();
+    estado = SUCESSO;
+}
+const string TUCodigoNegociacao::VALOR_VALIDO = "2024 Carlos";
+const string TUCodigoNegociacao::VALOR_INVALIDO = "2025_Carlos!";
+
+void TUCodigoNegociacao::tearDown(){
+    delete codigoNegociacao;
+}
+void TUCodigoNegociacao::testarCenariosValido(){
+    try {
+        codigoNegociacao->setValor(VALOR_VALIDO);
+        if(codigoNegociacao->getValor()!=VALOR_VALIDO){
+            estado = FALHA;
+        }
+    } catch (invalid_argument &excecao) {
+        estado = FALHA;
+    }
+}
+void TUCodigoNegociacao::testarCenarioInvalido(){
+    try{
+           codigoNegociacao->setValor(VALOR_INVALIDO);
+           estado = FALHA;
+       }
+       catch(invalid_argument &excecao){
+           if(codigoNegociacao->getValor() == VALOR_INVALIDO)
+               estado = FALHA;
+       }
+}
+int TUCodigoNegociacao::run(){
+    setUp();
+    testarCenariosValido();
+    testarCenarioInvalido();
+    tearDown();
+    return estado;
+}
+
+// Métodos TUDominio Perfil/ Carlos Eduardo - 241004659
+void TUPerfil::setUp(){
+    perfil = new Perfil();
+    estado = SUCESSO;
+}
+const string TUPerfil::VALOR_VALIDO = "Conservador";
+const string TUPerfil::VALOR_INVALIDO = "Conservadorr";
+
+void TUPerfil::tearDown(){
+    delete perfil;
+}
+void TUPerfil::testarCenariosValido(){
+    try {
+        perfil->setValor(VALOR_VALIDO);
+        if(perfil->getValor()!=VALOR_VALIDO){
+            estado = FALHA;
+        }
+    } catch (invalid_argument &excecao) {
+        estado = FALHA;
+    }
+}
+void TUPerfil::testarCenarioInvalido(){
+    try{
+           perfil->setValor(VALOR_INVALIDO);
+           estado = FALHA;
+       }
+       catch(invalid_argument &excecao){
+           if(perfil->getValor() == VALOR_INVALIDO)
+               estado = FALHA;
+       }
+}
+int TUPerfil::run(){
+    setUp();
+    testarCenariosValido();
+    testarCenarioInvalido();
+    tearDown();
+    return estado;
+}
+
+// Métodos TUDominio Senha Carlos Eduardo - 241004659
+void TUSenha::setUp(){
+    senha = new Senha();
+    estado = SUCESSO;
+}
+const string TUSenha::VALOR_VALIDO = "aUu25#";
+const string TUSenha::VALOR_INVALIDO = "Kuu25!";
+
+void TUSenha::tearDown(){
+    delete senha;
+}
+void TUSenha::testarCenariosValido(){
+    try {
+        senha->setValor(VALOR_VALIDO);
+        if(senha->getValor()!=VALOR_VALIDO){
+            estado = FALHA;
+        }
+    } catch (invalid_argument &excecao) {
+        estado = FALHA;
+    }
+}
+void TUSenha::testarCenarioInvalido(){
+    try{
+           senha->setValor(VALOR_INVALIDO);
+           estado = FALHA;
+       }
+       catch(invalid_argument &excecao){
+           if(senha->getValor() == VALOR_INVALIDO)
+               estado = FALHA;
+       }
+}
+int TUSenha::run(){
+    setUp();
+    testarCenariosValido();
+    testarCenarioInvalido();
+    tearDown();
+    return estado;
+}
+
