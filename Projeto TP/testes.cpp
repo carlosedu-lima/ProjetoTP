@@ -473,7 +473,7 @@ void TUConta::setUp(){
     conta = new Conta();
     estado = SUCESSO;
 }
-const string TUConta::VALOR_VALIDO_CPF="07676639182";
+const string TUConta::VALOR_VALIDO_CPF="12345678901";
 const string TUConta::VALOR_VALIDO_NOME="Carlos Eduardo";
 const string TUConta::VALOR_VALIDO_SENHA="aUu25#";
 
