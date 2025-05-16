@@ -8,79 +8,6 @@
 #include "testes.hpp"
 
 using namespace std;
-//int main(int argc, const char * argv[]) {
-    // IMPLEMENTACAO
-   /* Codigo c;
-    c.setValor(5);
-    cout<<c.getValor()<<endl;
-    cout<<c.setValor(10103)<<endl;*/
-//    string nome= "1Carlos";
-//    int num = 1;
-//    char a ='s';
-//    if(isdigit(nome[0])){
-//        cout<<"E um decimal de 0 - 9"<<endl;
-//    }else{
-//        cout<<"Nao e"<<endl;
-////    }
-////
-//    string senha = "carlos !";
-//    int cont = 0;
-//    cout<<size(senha)<<endl;
-//    while (cont<=size(senha)){
-//        if(isspace(nome[cont])){
-//            cout<<"tem especo"<<endl;
-//        }else{
-//            cout<<"na0 tem espaco"<<endl;
-//        }
-//        cont=cont+1;
-//    }
-//    CodigoNegociacao c;
-//    c.setValor("Kdu12");
-//    cout<<c.getValor()<<endl;
-//    Perfil p;
-//    p.setValor("Conservador");
-//    cout<<p.getValor()<<endl;
-//    Senha s;
-//    s.setValor(";");
-//    cout<<"A senha é "<<s.getValor()<<endl;
-/*    Conta conta;
-    CPF c;
-    Nome n;
-    Senha s;
-
-    c.setCPF("07676639182");
-    n.setNome("Carlos Eduardo");
-    s.setValor("Kdu25#");
-
-    conta.setCPF(c);
-    conta.setNome(n);
-    conta.setSenha(s);
-
-    cout<<conta.getCPF().getCPF()<<endl;
-    cout<<conta.getNome().getNome()<<endl;
-    cout<<conta.getSenha().getValor()<<endl;
-
-    Carteira carteira;
-
-    Codigo codigo;
-    Perfil p;
-
-    codigo.setValor(123);
-    p.setValor("Conservador");
-
-    carteira.setNome(n);
-    carteira.setCodigo(codigo);
-    carteira.setPerfil(p);
-
-    cout<<carteira.getCodigo().getValor()<<endl;
-    cout<<carteira.getNome().getNome()<<endl;
-    cout<<carteira.getPerfil().getValor()<<endl;
-
-
-    return 0;
-
-
-}*/
 
 int main(){
     TUDinheiro testeDinheiro;
@@ -125,5 +52,73 @@ int main(){
         case TUOrdem::FALHA: cout << "Teste Entidade Ordem: FALHA" << endl;
         break;
     }
+    // TESTE CLASSE CODIGO - CARLOS EDUARDO 241004659
+    TUCodigo testeCodigo;
+
+    switch (testeCodigo.run()) {
+        case TUCodigo::SUCESSO:cout<<"SUCESSO"<<endl;
+            break;
+        case TUCodigo::FALHA:cout<<"FALHA"<<endl;
+            break;
+        default:
+            break;
+    }
+    // TESTE CLASSE CODIGO - CARLOS EDUARDO 241004659
+    TUCodigoNegociacao testeCodigoNegociacao;
+
+    switch (testeCodigoNegociacao.run()) {
+        case TUCodigoNegociacao::SUCESSO:cout<<"SUCESSO"<<endl;
+            break;
+        case TUCodigoNegociacao::FALHA:cout<<"FALHA"<<endl;
+            break;
+        default:
+            break;
+    }
+    
+    TUPerfil testePerfil; // TESTE CLASSE PERFIL - CARLOS EDUARDO 241004659
+
+    switch (testePerfil.run()) {
+        case TUPerfil::SUCESSO:cout<<"SUCESSO"<<endl;
+            break;
+        case TUPerfil::FALHA:cout<<"FALHA"<<endl;
+            break;
+        default:
+            break;
+    }
+   
+    TUSenha testeSenha; // TESTE CLASSE PERFIL - CARLOS EDUARDO 241004659
+
+    switch (testeSenha.run()) {
+        case TUSenha::SUCESSO:cout<<"SUCESSO"<<endl;
+            break;
+        case TUSenha::FALHA:cout<<"FALHA"<<endl;
+            break;
+        default:
+            break;
+    }
+    // TESTE CLASSE ENTIDADE CONTA - CARLOS EDUARDO 241004659
+    
+    TUConta testeConta;
+    
+    switch (testeConta.run()) {
+        case TUConta::SUCESSO:cout<<"SUCESSO"<<endl;
+            break;
+        case TUConta::FALHA:cout<<"FALHA"<<endl;
+            break;
+        default:
+            break;
+    }
+    // TESTE CLASSE ENTIDADE CARTEIRA - CARLOS EDUARDO 241004659
+    TUCarteira testeCarteira;
+    
+    switch (testeCarteira.run()) {
+        case TUCarteira::SUCESSO:cout<<"SUCESSO"<<endl;
+            break;
+        case TUCarteira::FALHA:cout<<"FALHA"<<endl;
+            break;
+        default:
+            break;
+    }
+
         return 0;
 }
