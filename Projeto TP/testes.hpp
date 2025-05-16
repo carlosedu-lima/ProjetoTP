@@ -206,9 +206,9 @@ private:
     /// @brief Constante de valor valido para o dominio Data
     const static int VALOR_VALIDO_DIA = 9 ;
     /// @brief Constante de valor valido para o dominio Dinheiro, denominado P por ser chamado preco na entidade
-    const static int VALOR_VALIDO_P = 1000;
+    const static float VALOR_VALIDO_P;
     /// @brief Constante de valor valido para o dominio Quantidade
-    constexpr static float VALOR_VALIDO_Qt = 1000;
+    const static int VALOR_VALIDO_Qt = 1000;
     /// @brief Inicialização da variavel que representa a entidade.
     Ordem *ordem;
     /// @brief Inicialização da variavel de teste
@@ -231,6 +231,7 @@ public:
     int run();
     };
 const string TUOrdem::VALOR_VALIDO_CN = "tT0 9";
+const float TUOrdem::VALOR_VALIDO_P = 1000.2;
 
 //TESTE Dominio: TUCodigo// Carlos Eduardo - 241004659
 class TUCodigo{
