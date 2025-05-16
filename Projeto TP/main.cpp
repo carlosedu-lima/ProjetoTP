@@ -6,7 +6,7 @@
 #include "dominios.hpp"
 #include "entidades.hpp"
 #include "testes.hpp"
-
+#include "testes.cpp" // A falta desse include estava causando um erro de linkagem
 using namespace std;
 
 int main(){
