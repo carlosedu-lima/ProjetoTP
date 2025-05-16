@@ -231,4 +231,74 @@ public:
     int run();
     };
 const string TUOrdem::VALOR_VALIDO_CN = "tT0 9";
+
+//TESTE Dominio: TUCodigo// Carlos Eduardo - 241004659
+class TUCodigo{
+private:
+    const static int VALOR_VALIDO = 12345;
+    const static int VALOR_INVALIDO = 1234567;
+    Codigo *codigo;
+    int estado;
+    void setUp();
+    void tearDown();
+    void testarCenariosValido();
+    void testarCenarioInvalido();
+public:
+    const static int SUCESSO = 0;
+    const static int FALHA = -1;
+    
+    int run();
+};
+
+//TESTE Dominio: TUCodigoNegociacao// Carlos Eduardo - 241004659
+class TUCodigoNegociacao{
+private:
+    const static string VALOR_VALIDO;
+    const static string VALOR_INVALIDO;
+    CodigoNegociacao *codigoNegociacao;
+    int estado;
+    void setUp();
+    void tearDown();
+    void testarCenariosValido();
+    void testarCenarioInvalido();
+public:
+    const static int SUCESSO = 0;
+    const static int FALHA = -1;
+    int run();
+};
+
+//TESTE Dominio: TUPerfil // Carlos Eduardo - 241004659
+class TUPerfil{
+private:
+    const static string VALOR_VALIDO;
+    const static string VALOR_INVALIDO;
+    Perfil *perfil;
+    int estado;
+    void setUp();
+    void tearDown();
+    void testarCenariosValido();
+    void testarCenarioInvalido();
+public:
+    const static int SUCESSO = 0;
+    const static int FALHA = -1;
+    
+    int run();
+};
+//TESTE Dominio: TUSenha// Carlos Eduardo - 241004659
+class TUSenha{
+private:
+    const static string VALOR_VALIDO;
+    const static string VALOR_INVALIDO;
+    Senha *senha;
+    int estado;
+    void setUp();
+    void tearDown();
+    void testarCenariosValido();
+    void testarCenarioInvalido();
+public:
+    const static int SUCESSO = 0;
+    const static int FALHA = -1;
+    
+    int run();
+};
 #endif // TESTES_HPP_INCLUDED
