@@ -468,3 +468,79 @@ int TUSenha::run(){
     return estado;
 }
 
+// Métodos TUEntidades Conta - Carlos Eduardo - 241004659
+void TUConta::setUp(){
+    conta = new Conta();
+    estado = SUCESSO;
+}
+const string TUConta::VALOR_VALIDO_CPF="07676639182";
+const string TUConta::VALOR_VALIDO_NOME="Carlos Eduardo";
+const string TUConta::VALOR_VALIDO_SENHA="aUu25#";
+
+void TUConta::tearDown(){
+    delete conta;
+}
+void TUConta::testarCenarios(){
+    CPF cpf;
+    cpf.setCPF(VALOR_VALIDO_CPF);
+    conta->setCPF(cpf);
+    if(conta->getCPF().getCPF() != VALOR_VALIDO_CPF)
+        estado = FALHA;
+    
+    Nome nome;
+    nome.setNome(VALOR_VALIDO_NOME);
+    conta->setNome(nome);
+    if(conta->getNome().getNome() != VALOR_VALIDO_NOME)
+        estado = FALHA;
+    
+    Senha senha;
+    senha.setValor(VALOR_VALIDO_SENHA);
+    conta->setSenha(senha);
+    if(conta->getSenha().getValor() != VALOR_VALIDO_SENHA)
+        estado=FALHA;
+
+}
+int TUConta::run(){
+    setUp();
+    testarCenarios();
+    tearDown();
+    return estado;
+}
+
+// Métodos TUEntidades Carteira - Carlos Eduardo - 241004659
+void TUCarteira::setUp(){
+    carteira = new Carteira();
+    estado = SUCESSO;
+}
+const string TUCarteira::VALOR_VALIDO_NOME="Jose Carlos";
+const string TUCarteira::VALOR_VALIDO_PERFIL = "Moderado";
+void TUCarteira::tearDown(){
+    delete carteira;
+}
+void TUCarteira::testarCenarios(){
+    Codigo codigo;
+    codigo.setValor(VALOR_VALIDO_CODIGO);
+    carteira->setCodigo(codigo);
+    if(carteira->getCodigo().getValor() != VALOR_VALIDO_CODIGO)
+        estado = FALHA;
+
+    Nome nome;
+    nome.setNome(VALOR_VALIDO_NOME);
+    carteira->setNome(nome);
+    if(carteira->getNome().getNome() != VALOR_VALIDO_NOME)
+        estado = FALHA;
+    
+    Perfil perfil;
+    perfil.setValor(VALOR_VALIDO_PERFIL);
+    carteira->setPerfil(perfil);
+    if(carteira->getPerfil().getValor()!=VALOR_VALIDO_PERFIL)
+        estado=FALHA;
+    
+}
+int TUCarteira::run(){
+    setUp();
+    testarCenarios();
+    tearDown();
+    return estado;
+}
+
