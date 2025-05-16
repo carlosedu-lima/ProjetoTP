@@ -5,24 +5,51 @@
 
 using namespace std;
 
-// Entidade: Ordem / Luiz Carlos - 241004560
+/// Entidade: Ordem / Luiz Carlos - 241004560
+/// Cria uma estrutura para Ordens
+/// Toda ordem necessariamente precisa ter Codigo, Codigo de Negociacao, Data, Preço e Quantidade.
 class Ordem{
 private:
+    /// Inicialização de um objeto da classe Codigo
     Codigo codigo;
+    /// Inicialização de um objeto da classe Codigo de Negociação
     CodigoNegociacao codigonegociacao;
+    /// Inicialização de um objeto da classe Data
     Data data;
+    /// Inicialização de um objeto da classe Dinheiro
     Dinheiro preco;
+    /// Inicialização de um objeto da classe Quantidade
     Quantidade quantidade;
 public:
+    /// Método que armazena o codigo
+    /// @param Um valor da classe Codigo
     void setCodigo(Codigo);
+    /// Método que puxa o codigo armazenado
+    /// @return codigo
     Codigo getCodigo();
+    /// Método que armazena o codigo de negociação
+    /// @param Um valor da classe CodigoNegociacao
     void setCodigoNegociacao(CodigoNegociacao);
+    /// Método que puxa o codigo de negociação armazenado
+    /// @return codigo de negociação
     CodigoNegociacao getCodigoNeociacao();
+    /// Método que armazena a data
+    /// @param um valor da classe Data
     void setData(Data);
+    /// Método que puxa a data armazenada
+    /// @return data
     Data getData();
+    /// Método que armazena o preço
+    /// @param Um valor da classe Dinheiro
     void setPreco(Dinheiro);
+    /// Método que puxa o preço armazenado
+    /// @return preço
     Dinheiro getPreco();
+    /// Método que armazena a quantidade
+    /// @param Um valor da classe Quantidade
     void setQuantidade(Quantidade);
+    /// Método que puxa a quantidade armazenada
+    /// @return quantidade
     Quantidade getQuantidade();
 };
 inline void Ordem::setCodigo(Codigo codigo){
