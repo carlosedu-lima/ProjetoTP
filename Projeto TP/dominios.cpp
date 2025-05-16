@@ -8,7 +8,7 @@
 #include <stdexcept>
 
 using namespace std;
-//Metodos Classe Dominio Codigo - Carlos Eduardo 241004659
+///Metodos Classe Dominio Codigo - Carlos Eduardo 241004659
 bool Codigo::validar(int valor){
     if(valor>LIMITEMAX||valor<LIMITEMIN)
         throw invalid_argument("Valor Invalido!");
@@ -20,7 +20,7 @@ bool Codigo::setValor(int valor){
     this->valor = valor;
     return true;
 }
-//Metodos Classe Dominio CodigoNegociacao - Carlos Eduardo 241004659
+///Metodos Classe Dominio CodigoNegociacao - Carlos Eduardo 241004659
 bool CodigoNegociacao::validar(string valor){
     int cont = 0;
     if(size(valor)<=LIMITE){
@@ -43,7 +43,7 @@ bool CodigoNegociacao::setValor(string valor){
     this->valor=valor;
     return true;
 }
-//Metodos Classe Dominio Perfil - Carlos Eduardo 241004659
+///Metodos Classe Dominio Perfil - Carlos Eduardo 241004659
 bool Perfil::validar(string valor){
     if(valor=="Conservador"||valor=="Moderado"||valor=="Agressivo"){
         return true;
@@ -58,7 +58,7 @@ bool Perfil::setValor(string valor){
     this->valor=valor;
     return true;
 }
-//Metodos Classe Dominio Senha- Carlos Eduardo 241004659
+///Metodos Classe Dominio Senha- Carlos Eduardo 241004659
 bool Senha::validar(string valor) {
     if (valor.size() < 1 || valor.size() > LIMITE) {
         throw invalid_argument("Tamanho inválido.");
@@ -108,8 +108,8 @@ bool Senha::setValor(string valor){
 }
 
 
-// Métodos: Qauntidade / Luiz Carlos - 241004560
-bool Quantidade::validar(float valor){
+/// Métodos: Quantidade / Luiz Carlos - 241004560
+bool Quantidade::validar(int valor){
     if (valor > LIMITE_MAX)
         throw invalid_argument("Valor acima do Limite.");
     if (valor < LIMITE_MIN)
@@ -117,7 +117,7 @@ bool Quantidade::validar(float valor){
     return true;
 }
 
-bool Quantidade::setValor(float valor){
+bool Quantidade::setValor(int valor){
     if (validar(valor)){
             this->valor = valor;
             return true;}
@@ -126,9 +126,9 @@ bool Quantidade::setValor(float valor){
         return false;
 }
 
-// Métodos: Dinheiro / Luiz Carlos - 241004560
+/// Métodos: Dinheiro / Luiz Carlos - 241004560
 
-bool Dinheiro::validar(int valor){
+bool Dinheiro::validar(float valor){
     if (valor > LIMITE_MAX)
         throw invalid_argument("Valor acima do Limite.");
     if (valor < LIMITE_MIN)
@@ -136,7 +136,7 @@ bool Dinheiro::validar(int valor){
     return true;
 }
 
-bool Dinheiro::setValor(int valor){
+bool Dinheiro::setValor(float valor){
     if (validar(valor)){
         this->valor = valor;
         return true;}
@@ -170,7 +170,7 @@ bool Data::setData(int ano, int mes, int dia) {
         return false;}
     }
 
-// Métodos: Nome / Luiz Carlos - 241004560
+/// Métodos: Nome / Luiz Carlos - 241004560
 bool Nome::validarNome(string nome){
     if (nome.length() > LIMITE_CHAR_MAX)
         throw invalid_argument("Caracteres acima do limite.");
@@ -191,7 +191,7 @@ bool Nome::setNome(string nome){
     else{
         return false;}
 }
-// Métodos: CPF / Luiz Carlos - 241004560
+/// Métodos: CPF / Luiz Carlos - 241004560
 
 bool CPF::validarCPF(string cpf){
     int cont = 0;
