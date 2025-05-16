@@ -349,4 +349,40 @@ public:
     const static int FALHA = -1;
     int run();
 };
+
+//TESTE Entidade: TUConta// Carlos Eduardo - 241004659
+
+class TUConta{
+private:
+    const static string VALOR_VALIDO_CPF;
+    const static string VALOR_VALIDO_NOME;
+    const static string VALOR_VALIDO_SENHA;
+    Conta *conta;
+    int estado;
+    void setUp();
+    void tearDown();
+    void testarCenarios();
+public:
+    const static int SUCESSO = 0;
+    const static int FALHA = -1;
+    int run();
+};
+
+//TESTE Entidade: TUCarteira// Carlos Eduardo - 241004659
+
+class TUCarteira{
+private:
+    const int VALOR_VALIDO_CODIGO = 12348;
+    const static string VALOR_VALIDO_NOME;
+    const static string VALOR_VALIDO_PERFIL;
+    Carteira *carteira;
+    int estado;
+    void setUp();
+    void tearDown();
+    void testarCenarios();
+public:
+    const static int SUCESSO = 0;
+    const static int FALHA = -1;
+    int run();
+};
 #endif // TESTES_HPP_INCLUDED
