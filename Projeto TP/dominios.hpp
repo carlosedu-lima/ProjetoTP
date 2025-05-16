@@ -4,7 +4,10 @@
 #include <string>
 #include <set>
 using namespace std;
-//Classe Dominio Codigo - Carlos Eduardo 241004659
+
+///Classe Dominio Codigo - Carlos Eduardo 241004659
+/// @brief Dominio Codigo, cria um limite min/max para um valor de Codigo
+/// O valor pode variar entre 0 e 99999 com até 5 digitos
 class Codigo{
 private:
     static const int LIMITEMAX = 99999;
@@ -20,6 +23,8 @@ inline int Codigo::getValor(){
     return valor;
 }
 //Classe Dominio Codigo de Negociacao - Carlos Eduardo 241004659
+/// @brief Dominio Codigo de Negociacao, cria um limite que o código pode ter até 12 caracteres
+///Cada caracter pode ser dígito (0 – 9), letra (A – Z ou a – z) ou espaço em branco.
 class CodigoNegociacao{
 private:
     static const int LIMITE = 12;
@@ -34,6 +39,8 @@ inline string CodigoNegociacao::getValor(){
     return valor;
 }
 //Classe Dominio Perfil - Carlos Eduardo 241004659
+/// @brief Dominio Perfil, vai determinar o tipo de perfil do usuário
+///O Perfil pode ser: Conservador, Moderado, Agressivo
 class Perfil{
 private:
     string valor;
@@ -46,6 +53,14 @@ inline string Perfil::getValor(){
     return valor;
 }
 //Classe Dominio Senha - Carlos Eduardo 241004659
+/// @brief Dominio Senha, cria um limite que a senha pode ter até 6 caracteres
+///Cada caracter pode ser dígito (0 – 9), letra (A – Z ou a – z) ou espaço em branco.
+///Cada caracter pode ser dígito (0 – 9), letra (A – Z ou a – z), #, $, % ou &.
+///Não há caracter duplicado.
+///Existe pelo menos um dígito (0 – 9)
+///Existe pelo menos uma letra maiúscula (A – Z)
+///Existe pelo menos uma letra minúscula (a – z)
+///Existe pelo menos um caracter especial (#, $, % ou &)
 class Senha{
 private:
     static int const LIMITE = 6;
