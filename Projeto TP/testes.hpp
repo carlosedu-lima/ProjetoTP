@@ -12,9 +12,9 @@ using namespace std;
 class TUDinheiro {
 private:
     /// @brief Valor valido para dinheiro, queremos que esse valor seja aceito
-    const static int VALOR_VALIDO = 1000;
+    const static float VALOR_VALIDO;
     /// @brief Valor invalido para quantidade, queremos que esse valor seja negado
-    const static int VALOR_INVALIDO = -1;
+    const static float VALOR_INVALIDO;
     /// @brief Inicialização da variavel que representa o dinheiro
     Dinheiro *dinheiro;
     /// @brief Inicialização da variavel de teste
@@ -39,6 +39,8 @@ public:
     int run();
 
 };
+const float TUDinheiro::VALOR_VALIDO = 1000.5;
+const float TUDinheiro::VALOR_INVALIDO = -1;
 /// TESTE Dominio: Quantidade // Luiz Carlos - 241004560
 /// @brief Classe de teste unitario do Dominio Quantidade
 /// Contem valor validos e invalidos para o dominio quantidade
@@ -46,9 +48,9 @@ public:
 class TUQuantidade {
 private:
     /// @brief Valor valido para quantidade, queremos que esse valor seja aceito
-    const static float VALOR_VALIDO;
+    const static int VALOR_VALIDO = 1000;
     /// @brief Valor invalido para quantidade, queremos que esse valor seja negado
-    const static float VALOR_INVALIDO;
+    const static int VALOR_INVALIDO = -1;
     /// @brief Inicialização da variavel que representa a quantidade
     Quantidade *quantidade;
     /// @brief Inicialização da variavel de teste
@@ -73,8 +75,6 @@ public:
     int run();
 
 };
-const float TUQuantidade::VALOR_VALIDO = 1000.01;
-const float TUQuantidade::VALOR_INVALIDO = -1;
 
 /// TESTE Dominio: Data // Luiz Carlos - 241004560
 /// @brief Classe de teste unitario do Dominio Data
@@ -303,7 +303,7 @@ public:
 };
 
 //TESTE Entidade: TUConta// Carlos Eduardo - 241004659
-
+/*
 class TUConta{
 private:
     const static string VALOR_VALIDO_CPF;
@@ -349,7 +349,7 @@ public:
     const static int FALHA = -1;
     int run();
 };
-
+*/
 //TESTE Entidade: TUConta// Carlos Eduardo - 241004659
 
 class TUConta{
