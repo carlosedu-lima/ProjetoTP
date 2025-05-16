@@ -56,9 +56,9 @@ int main(){
     TUCodigo testeCodigo;
 
     switch (testeCodigo.run()) {
-        case TUCodigo::SUCESSO:cout<<"SUCESSO"<<endl;
+        case TUCodigo::SUCESSO:cout<<"Teste Dominio Codigo: SUCESSO"<<endl;
             break;
-        case TUCodigo::FALHA:cout<<"FALHA"<<endl;
+        case TUCodigo::FALHA:cout<<"Teste Dominio Codigo: FALHA"<<endl;
             break;
         default:
             break;
@@ -67,9 +67,9 @@ int main(){
     TUCodigoNegociacao testeCodigoNegociacao;
 
     switch (testeCodigoNegociacao.run()) {
-        case TUCodigoNegociacao::SUCESSO:cout<<"SUCESSO"<<endl;
+        case TUCodigoNegociacao::SUCESSO:cout<<"Teste Dominio Codigo Negocicacao: SUCESSO"<<endl;
             break;
-        case TUCodigoNegociacao::FALHA:cout<<"FALHA"<<endl;
+        case TUCodigoNegociacao::FALHA:cout<<"Teste Dominio Codigo Negocicacao: FALHA"<<endl;
             break;
         default:
             break;
@@ -78,9 +78,9 @@ int main(){
     TUPerfil testePerfil; // TESTE CLASSE PERFIL - CARLOS EDUARDO 241004659
 
     switch (testePerfil.run()) {
-        case TUPerfil::SUCESSO:cout<<"SUCESSO"<<endl;
+        case TUPerfil::SUCESSO:cout<<"Teste Dominio Perfil: SUCESSO"<<endl;
             break;
-        case TUPerfil::FALHA:cout<<"FALHA"<<endl;
+        case TUPerfil::FALHA:cout<<"Teste Dominio Perfil: FALHA"<<endl;
             break;
         default:
             break;
@@ -89,9 +89,9 @@ int main(){
     TUSenha testeSenha; // TESTE CLASSE PERFIL - CARLOS EDUARDO 241004659
 
     switch (testeSenha.run()) {
-        case TUSenha::SUCESSO:cout<<"SUCESSO"<<endl;
+        case TUSenha::SUCESSO:cout<<"Testes Dominio Senha: SUCESSO"<<endl;
             break;
-        case TUSenha::FALHA:cout<<"FALHA"<<endl;
+        case TUSenha::FALHA:cout<<"Teste Dominio Senha: FALHA"<<endl;
             break;
         default:
             break;
@@ -101,9 +101,9 @@ int main(){
     TUConta testeConta;
     
     switch (testeConta.run()) {
-        case TUConta::SUCESSO:cout<<"SUCESSO"<<endl;
+        case TUConta::SUCESSO:cout<<"Teste Entidade Conta: SUCESSO"<<endl;
             break;
-        case TUConta::FALHA:cout<<"FALHA"<<endl;
+        case TUConta::FALHA:cout<<"Teste Entidade Conta: FALHA"<<endl;
             break;
         default:
             break;
@@ -112,9 +112,9 @@ int main(){
     TUCarteira testeCarteira;
     
     switch (testeCarteira.run()) {
-        case TUCarteira::SUCESSO:cout<<"SUCESSO"<<endl;
+        case TUCarteira::SUCESSO:cout<<"Teste Entidade Carteira: SUCESSO"<<endl;
             break;
-        case TUCarteira::FALHA:cout<<"FALHA"<<endl;
+        case TUCarteira::FALHA:cout<<"Teste Entidade Carteira: FALHA"<<endl;
             break;
         default:
             break;
