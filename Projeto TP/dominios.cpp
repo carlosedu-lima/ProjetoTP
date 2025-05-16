@@ -59,27 +59,46 @@ bool Perfil::setValor(string valor){
     return true;
 }
 //Metodos Classe Dominio Senha- Carlos Eduardo 241004659
-bool Senha::validar(string valor){
-    int cont = 0;
-    if(size(valor)>=0&&size(valor)<=LIMITE){
-        while (cont<size(valor)) {
-            if(isalpha(valor[cont])||isdigit(valor[cont])||valor[cont]=='$'||valor[cont]=='%'||valor[cont]=='&'||valor[cont]=='#'||valor[cont]==' '){
-                cont++;
-            }else{
-                cout<<"**SENHA INVÁLIDA***"<<endl;
-                return false;
-            }
+bool Senha::validar(string valor) {
+    if (valor.size() < 1 || valor.size() > LIMITE) {
+        throw invalid_argument("Tamanho inválido.");
+    }
+
+    bool temMaiuscula = false;
+    bool temMinuscula = false;
+    bool temDigito = false;
+    bool temEspecial = false;
+
+    // Verifica caracteres permitidos e presença dos tipos exigidos
+    for (int i = 0; i < valor.size(); i++) {
+        char c = valor[i];
+
+        if (isalpha(c) || isdigit(c) || c == '$' || c == '%' || c == '&' || c == '#' || c == ' ') {
+            if (c >= 'A' && c <= 'Z') temMaiuscula = true;
+            if (c >= 'a' && c <= 'z') temMinuscula = true;
+            if (isdigit(c)) temDigito = true;
+            if (c == '$' || c == '%' || c == '&' || c == '#') temEspecial = true;
+        } else {
+            throw invalid_argument("Caractere inválido!");
         }
-        for (int c = 0; c<=size(valor); c++) {
-            for (int s = c+1; s<=size(valor); s++) {
-                if(valor[c]==valor[s]){
-                    throw invalid_argument("Valor Invalido!");
-                }
+    }
+
+    if (!temMaiuscula || !temMinuscula || !temDigito || !temEspecial) {
+        throw invalid_argument("Senha deve conter ao menos: 1 dígito, 1 maiúscula, 1 minúscula e 1 caractere especial (#, $, %, &).");
+    }
+
+    // Verifica repetição de caracteres
+    for (int i = 0; i < valor.size(); i++) {
+        for (int j = i + 1; j < valor.size(); j++) {
+            if (valor[i] == valor[j]) {
+                throw invalid_argument("Caracteres repetidos não são permitidos.");
             }
         }
     }
+
     return true;
 }
+
 bool Senha::setValor(string valor){
     if(!validar(valor)){
         return false;
