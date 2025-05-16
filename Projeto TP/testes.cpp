@@ -484,8 +484,19 @@ void TUConta::testarCenarios(){
     CPF cpf;
     cpf.setCPF(VALOR_VALIDO_CPF);
     conta->setCPF(cpf);
-    if(conta->getCPF().getCPF() != VALOR_VALIDO_CPF)
+    string cpftemp;
+    string num3;
+    string num6;
+    string num9;
+    string num11;
+    num3 = VALOR_VALIDO_CPF.substr(0, 3);
+    num6 = VALOR_VALIDO_CPF.substr(3, 3);
+    num9 = VALOR_VALIDO_CPF.substr(6, 3);
+    num11 = VALOR_VALIDO_CPF.substr(9);
+    cpftemp = num3 + '.' + num6 + '.' + num9 + '-' + num11;
+    if(conta->getCPF().getCPF() != cpftemp)
         estado = FALHA;
+    
     
     Nome nome;
     nome.setNome(VALOR_VALIDO_NOME);
@@ -543,4 +554,3 @@ int TUCarteira::run(){
     tearDown();
     return estado;
 }
-
