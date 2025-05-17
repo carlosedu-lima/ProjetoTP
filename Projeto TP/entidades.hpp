@@ -82,18 +82,36 @@ inline void Ordem::setQuantidade(Quantidade quantidade){
 inline Quantidade Ordem::getQuantidade(){
     return quantidade;
 }
-//Classe e Metodos Entidade Conta - Carlos Eduardo 241004659
+///Classe e Metodos Entidade Conta - Carlos Eduardo 241004659
+/// Entidade: Conta
+/// Cria uma estrutura para Conta
+/// Toda ordem necessariamente precisa ter Cpf, Nome, Senha.
 class Conta{
 private:
+    /// Inicialização de um objeto da classe CPF
     CPF cpf;
+    /// Inicialização de um objeto da classe Nome
     Nome nome;
+    /// Inicialização de um objeto da classe Senha
     Senha senha;
 public:
+    /// Método que armazena o CPF
+    /// @param Um valor da classe CPF
     void setCPF(CPF);
+    /// Método que  retorna o CPF armazenado
+    /// @return CPF
     CPF getCPF();
+    /// Método que armazena o Nome
+    /// @param Um valor da classe Nome
     void setNome(Nome);
+    /// Método que  retorna o Nome armazenado
+    /// @return Nome
     Nome getNome();
+    /// Método que armazena a Senha
+    /// @param Um valor da classe Senha
     void setSenha(Senha);
+    /// Método que  retorna a Senha armazenada
+    /// @return Senha
     Senha getSenha();
 };
 inline void Conta::setCPF(CPF cpf){
@@ -114,18 +132,36 @@ inline void Conta::setSenha(Senha senha){
 inline Senha Conta::getSenha(){
     return senha;
 }
-//Classe e Metodos Entidade Carteira - Carlos Eduardo 241004659
+///Classe e Metodos Entidade Conta - Carlos Eduardo 241004659
+/// Entidade: Carteira
+/// Cria uma estrutura para Carteira
+/// Toda ordem necessariamente precisa ter Codigo, Nome, Perfil.
 class Carteira{
 private:
+    /// Inicialização de um objeto da classe Codigo
     Codigo codigo;
+    /// Inicialização de um objeto da classe Nome
     Nome nome;
+    /// Inicialização de um objeto da classe Perfil
     Perfil perfil;
 public:
+    /// Método que armazena o Codigo
+    /// @param Um valor da classe Codigo
     void setCodigo(Codigo);
+    /// Método que  retorna o Codigo armazenada
+    /// @return Codgio
     Codigo getCodigo();
+    /// Método que armazena o Nome
+    /// @param Um valor da classe Nome
     void setNome(Nome);
+    // Método que  retorna o Nome armazenada
+    /// @return Nome
     Nome getNome();
+    /// Método que armazena o Perfil
+    /// @param Um valor da classe Perfil
     void setPerfil(Perfil);
+    // Método que  retorna o Perfil armazenada
+    /// @return Perfil
     Perfil getPerfil();
 };
 inline void Carteira::setCodigo(Codigo codigo){
