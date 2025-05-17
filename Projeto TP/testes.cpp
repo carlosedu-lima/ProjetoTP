@@ -324,7 +324,7 @@ void TUCodigo::setUp(){
 void TUCodigo::tearDown(){
     delete codigo;
 }
-void TUCodigo::testarCenariosValido(){
+void TUCodigo::testarCenarioValorValido(){
     try {
         codigo->setValor(VALOR_VALIDO);
         if(codigo->getValor()!=VALOR_VALIDO){
@@ -334,7 +334,7 @@ void TUCodigo::testarCenariosValido(){
         estado = FALHA;
     }
 }
-void TUCodigo::testarCenarioInvalido(){
+void TUCodigo::testarCenarioValorInvalido(){
     try{
         codigo->setValor(VALOR_INVALIDO);
            estado = FALHA;
@@ -346,8 +346,8 @@ void TUCodigo::testarCenarioInvalido(){
 }
 int TUCodigo::run(){
     setUp();
-    testarCenariosValido();
-    testarCenarioInvalido();
+    testarCenarioValorValido();
+    testarCenarioValorInvalido();
     tearDown();
     return estado;
 }
@@ -363,7 +363,7 @@ const string TUCodigoNegociacao::VALOR_INVALIDO = "2025_Carlos!";
 void TUCodigoNegociacao::tearDown(){
     delete codigoNegociacao;
 }
-void TUCodigoNegociacao::testarCenariosValido(){
+void TUCodigoNegociacao::testarCenarioValorValido(){
     try {
         codigoNegociacao->setValor(VALOR_VALIDO);
         if(codigoNegociacao->getValor()!=VALOR_VALIDO){
@@ -373,7 +373,7 @@ void TUCodigoNegociacao::testarCenariosValido(){
         estado = FALHA;
     }
 }
-void TUCodigoNegociacao::testarCenarioInvalido(){
+void TUCodigoNegociacao::testarCenarioValorInvalido(){
     try{
            codigoNegociacao->setValor(VALOR_INVALIDO);
            estado = FALHA;
@@ -385,8 +385,8 @@ void TUCodigoNegociacao::testarCenarioInvalido(){
 }
 int TUCodigoNegociacao::run(){
     setUp();
-    testarCenariosValido();
-    testarCenarioInvalido();
+    testarCenarioValorValido();
+    testarCenarioValorInvalido();
     tearDown();
     return estado;
 }
@@ -402,7 +402,7 @@ const string TUPerfil::VALOR_INVALIDO = "Conservadorr";
 void TUPerfil::tearDown(){
     delete perfil;
 }
-void TUPerfil::testarCenariosValido(){
+void TUPerfil::testarCenarioValorValido(){
     try {
         perfil->setValor(VALOR_VALIDO);
         if(perfil->getValor()!=VALOR_VALIDO){
@@ -412,7 +412,7 @@ void TUPerfil::testarCenariosValido(){
         estado = FALHA;
     }
 }
-void TUPerfil::testarCenarioInvalido(){
+void TUPerfil::testarCenarioValorInvalido(){
     try{
            perfil->setValor(VALOR_INVALIDO);
            estado = FALHA;
@@ -424,8 +424,8 @@ void TUPerfil::testarCenarioInvalido(){
 }
 int TUPerfil::run(){
     setUp();
-    testarCenariosValido();
-    testarCenarioInvalido();
+    testarCenarioValorValido();
+    testarCenarioValorInvalido();
     tearDown();
     return estado;
 }
@@ -441,7 +441,7 @@ const string TUSenha::VALOR_INVALIDO = "Kuu25!";
 void TUSenha::tearDown(){
     delete senha;
 }
-void TUSenha::testarCenariosValido(){
+void TUSenha::testarCenarioValorValido(){
     try {
         senha->setValor(VALOR_VALIDO);
         if(senha->getValor()!=VALOR_VALIDO){
@@ -451,7 +451,7 @@ void TUSenha::testarCenariosValido(){
         estado = FALHA;
     }
 }
-void TUSenha::testarCenarioInvalido(){
+void TUSenha::testarCenarioValorInvalido(){
     try{
            senha->setValor(VALOR_INVALIDO);
            estado = FALHA;
@@ -463,8 +463,8 @@ void TUSenha::testarCenarioInvalido(){
 }
 int TUSenha::run(){
     setUp();
-    testarCenariosValido();
-    testarCenarioInvalido();
+    testarCenarioValorValido();
+    testarCenarioValorInvalido();
     tearDown();
     return estado;
 }
