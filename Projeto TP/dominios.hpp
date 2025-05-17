@@ -10,12 +10,23 @@ using namespace std;
 /// O valor pode variar entre 0 e 99999 com até 5 digitos
 class Codigo{
 private:
+    ///@param Constante de LIMITE máximo de caracter da do valor da classe Codigo
     static const int LIMITEMAX = 99999;
+    ///@param Constante de LIMITE minimo de caracter da do valor da classe Codigo
     static const int LIMITEMIN = 0;
+    ///@param representa o valor do Codigo de Negociação: tipo inteiro
     int valor;
+    /// - Representa a validação do Codigo com as regras da classe
+    /// - Retorna True se for valido
+    /// - lança a excessã0 @throw Invalid_argument se o valor for inválido
     bool validar(int);
 public:
+    /// - Irá 'setar' o valor na variável que representa 'Codigo'
+    /// - Vai chamar a função validar
+    /// - Retorna True se for armazenado
+    /// - Retorna False se não for armazenado
     bool setValor(int);
+    ///retorna o valor que está armazenado no valor de CodigoNegociacao
     int getValor();
 };
 
@@ -27,11 +38,21 @@ inline int Codigo::getValor(){
 ///Cada caracter pode ser dígito (0 – 9), letra (A – Z ou a – z) ou espaço em branco.
 class CodigoNegociacao{
 private:
+    ///@param Constante de LIMITE de caracter da Codigo de Negociacão
     static const int LIMITE = 12;
+    ///@param representa o valor do Codigo de Negociação:tipo string
     string valor;
+    /// - Representa a validação do Codigo de Negociação com as regras da classe
+    /// - Retorna True se for valido
+    /// - lança a excessã @throw Invalid_argument se o valor for inválido
     bool validar(string);
 public:
+    /// - Irá 'setar' o valor na variável que representa 'Codigo de Negociação'
+    /// - Vai chamar a função validar
+    /// - Retorna True se for armazenado
+    /// - Retorna False se não for armazenado
     bool setValor(string);
+    ///retorna o valor que está armazenado no valor de CodigoNegociacao
     string getValor();
 };
 
@@ -43,10 +64,20 @@ inline string CodigoNegociacao::getValor(){
 ///O Perfil pode ser: Conservador, Moderado, Agressivo
 class Perfil{
 private:
+    ///@param que representa o valor da senha tipo:string
     string valor;
+    /// - Irá 'setar' o valor na variável 'validar''
+    /// - Vai chamar a função validar
+    /// - Retorna True se for armazenado
+    /// - lança a excessão @throw Invalid_argument se o valor for inválido
     bool validar(string);
 public:
+    /// - Irá 'setar' o valor na variável que representa o 'perfil'
+    /// - Vai chamar a função validar
+    /// - Retorna True se for armazenado
+    /// - Retorna False se não for armazenado
     bool setValor(string);
+    ///retorna o valor que está armazenado  valor da Senha
     string getValor();
 };
 inline string Perfil::getValor(){
@@ -63,16 +94,27 @@ inline string Perfil::getValor(){
 ///Existe pelo menos um caracter especial (#, $, % ou &)
 class Senha{
 private:
+    ///@param Constante de LIMITE de caracter da senha
     static int const LIMITE = 6;
+    ///@param que representa o valor da senha tipo:string
     string valor;
+    /// - Representa a validação da senha com as regras da classe
+    /// - Retorna True se for valido
+    /// - lança a excessão @throw Invalid_argument se o valor for inválido
     bool validar(string);
 public:
+    /// - Irá 'setar' o valor na variável que representa 'senha'
+    /// - Vai chamar a função validar
+    /// - Retorna True se for armazenado
+    /// - Retorna False se não for armazenado
     bool setValor(string);
+    ///retorna o valor que está armazenado  valor da Senha
     string getValor();
 };
 inline string Senha::getValor(){
     return valor;
 }
+
 
 ///Domínio: Quantidade / Luiz Carlos - 241004560
 /// @brief Dominio quantidade, cria um limite min/max para quantidades
