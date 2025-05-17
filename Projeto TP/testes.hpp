@@ -37,7 +37,6 @@ public:
     /// @brief Método que roda o teste, chama os outros métodos, setUp,testarCenario e tearDown em ordem
     /// @return Retorna o estado
     int run();
-
 };
 const float TUDinheiro::VALOR_VALIDO = 1000.5;
 const float TUDinheiro::VALOR_INVALIDO = -1;
@@ -234,156 +233,200 @@ const string TUOrdem::VALOR_VALIDO_CN = "tT0 9";
 const float TUOrdem::VALOR_VALIDO_P = 1000.2;
 
 //TESTE Dominio: TUCodigo// Carlos Eduardo - 241004659
+/// @brief Classe de teste unitario do Dominio Codigo
+/// Contem valor validos e invalidos para o dominio codigo
+/// O teste é bem sucedido se o Valor valido for validado é armazenado, e se o valor invalido for armazenado, lança excessão
 class TUCodigo{
 private:
+    /// @brief Valor valido para dinheiro, queremos que esse valor seja aceito
     const static int VALOR_VALIDO = 12345;
+    /// @brief Valor valido para dinheiro, queremos que esse valor seja negado
     const static int VALOR_INVALIDO = 1234567;
+    /// @brief Inicialização da variavel que representa o codigo
     Codigo *codigo;
+    /// @brief Inicialização da variavel de teste
     int estado;
+    /// @brief Método que constroi o dominio
     void setUp();
+    /// @brief Método que destroi o dominio
     void tearDown();
-    void testarCenariosValido();
-    void testarCenarioInvalido();
+    /// @brief Método que testa se o VALOR_VALIDO foi aceito
+    /// @return SUCESSO se o valor for validado e armazenado, FALHA ao contrario
+    void testarCenarioValorValido();
+    /// @brief Método que testa se o VALOR_INVALIDO foi aceito
+    /// @return SUCESSO se lançar exceção e não armazenar o valor, FALHA ao contrario
+    void testarCenarioValorInvalido();
 public:
+    /// @brief Constante de controle do teste
     const static int SUCESSO = 0;
+    /// @brief Constante de controle do teste
     const static int FALHA = -1;
-    
+    /// @brief Método que roda o teste, chama os outros métodos, setUp,testarCenario e tearDown em ordem
+    /// @return Retorna o estado
     int run();
 };
 
 //TESTE Dominio: TUCodigoNegociacao// Carlos Eduardo - 241004659
+/// @brief Classe de teste unitario do Dominio Codigo Negociação
+/// Contem valor validos e invalidos para o dominio codigo Negociação
+/// O teste é bem sucedido se o Valor valido for validado é armazenado, e se o valor invalido for armazenado, lança excessão
 class TUCodigoNegociacao{
 private:
+    /// @brief Valor valido para dinheiro, queremos que esse valor seja aceito
     const static string VALOR_VALIDO;
+    /// @brief Valor valido para dinheiro, queremos que esse valor seja negado
     const static string VALOR_INVALIDO;
+    /// @brief Inicialização da variavel que representa o Codigo de Negociao
     CodigoNegociacao *codigoNegociacao;
+    /// @brief Inicialização da variavel de teste
     int estado;
+    /// @brief Método que constroi o dominio
     void setUp();
+    /// @brief Método que destroi o dominio
     void tearDown();
-    void testarCenariosValido();
-    void testarCenarioInvalido();
+    /// @brief Método que testa se o VALOR_VALIDO foi aceito
+    /// @return SUCESSO se o valor for validado e armazenado, FALHA ao contrario
+    void testarCenarioValorValido();
+    /// @brief Método que testa se o VALOR_INVALIDO foi aceito
+    /// @return SUCESSO se lançar exceção e não armazenar o valor, FALHA ao contrario
+    void testarCenarioValorInvalido();
 public:
+    /// @brief Constante de controle do teste
     const static int SUCESSO = 0;
+    /// @brief Constante de controle do teste
     const static int FALHA = -1;
+    /// @brief Método que roda o teste, chama os outros métodos, setUp,testarCenario e tearDown em ordem
+    /// @return Retorna o estado
     int run();
 };
 
 //TESTE Dominio: TUPerfil // Carlos Eduardo - 241004659
+/// @brief Classe de teste unitario do Dominio Perfil
+/// Contem valor validos e invalidos para o dominio perfil
+/// O teste é bem sucedido se o Valor valido for validado é armazenado, e se o valor invalido for armazenado, lança excessão
 class TUPerfil{
 private:
+    /// @brief Valor valido para dinheiro, queremos que esse valor seja aceito
     const static string VALOR_VALIDO;
+    /// @brief Valor valido para dinheiro, queremos que esse valor seja negado
     const static string VALOR_INVALIDO;
+    /// @brief Inicialização da variavel que representa o Perfil
     Perfil *perfil;
+    /// @brief Inicialização da variavel de teste
     int estado;
+    /// @brief Método que constroi o dominio
     void setUp();
+    /// @brief Método que destroi o dominio
     void tearDown();
-    void testarCenariosValido();
-    void testarCenarioInvalido();
+    /// @brief Método que testa se o VALOR_VALIDO foi aceito
+    /// @return SUCESSO se o valor for validado e armazenado, FALHA ao contrario
+    void testarCenarioValorValido();
+    /// @brief Método que testa se o VALOR_INVALIDO foi aceito
+    /// @return SUCESSO se lançar exceção e não armazenar o valor, FALHA ao contrario
+    void testarCenarioValorInvalido();
 public:
+    /// @brief Constante de controle do teste
     const static int SUCESSO = 0;
+    /// @brief Constante de controle do teste
     const static int FALHA = -1;
-    
+    /// @brief Método que roda o teste, chama os outros métodos, setUp,testarCenario e tearDown em ordem
+    /// @return Retorna o estado
     int run();
 };
 //TESTE Dominio: TUSenha// Carlos Eduardo - 241004659
+/// @brief Classe de teste unitario do Dominio Senha
+/// Contem valor validos e invalidos para o dominio senha
+/// O teste é bem sucedido se o Valor valido for validado é armazenado, e se o valor invalido for armazenado, lança excessão
 class TUSenha{
 private:
+    /// @brief Valor valido para dinheiro, queremos que esse valor seja aceito
     const static string VALOR_VALIDO;
+    /// @brief Valor valido para dinheiro, queremos que esse valor seja negado
     const static string VALOR_INVALIDO;
+    /// @brief Inicialização da variavel que representa o Senha
     Senha *senha;
+    /// @brief Inicialização da variavel de teste
     int estado;
+    /// @brief Método que constroi o dominio
     void setUp();
+    /// @brief Método que destroi o dominio
     void tearDown();
-    void testarCenariosValido();
-    void testarCenarioInvalido();
+    /// @brief Método que testa se o VALOR_VALIDO foi aceito
+    /// @return SUCESSO se o valor for validado e armazenado, FALHA ao contrario
+    void testarCenarioValorValido();
+    /// @brief Método que testa se o VALOR_INVALIDO foi aceito
+    /// @return SUCESSO se lançar exceção e não armazenar o valor, FALHA ao contrario
+    void testarCenarioValorInvalido();
 public:
+    /// @brief Constante de controle do teste
     const static int SUCESSO = 0;
+    /// @brief Constante de controle do teste
     const static int FALHA = -1;
-    
+    /// @brief Método que roda o teste, chama os outros métodos, setUp,testarCenario e tearDown em ordem
+    /// @return Retorna o estado
     int run();
 };
 
 //TESTE Entidade: TUConta// Carlos Eduardo - 241004659
-/*
+/// @brief Classe de teste unitario da entidade Conta
+/// Contem valor válidos para cada um dos dominios dentro da entidade.
 class TUConta{
 private:
+    /// @brief Constante de valor valido para o dominio CPF
     const static string VALOR_VALIDO_CPF;
-    const static string VALOR_INVALIDO_CPF;
+    /// @brief Constante de valor valido para o dominio Nome
     const static string VALOR_VALIDO_NOME;
-    const static string VALOR_INVALIDO_NOME;
+    /// @brief Constante de valor valido para o dominio Senha
     const static string VALOR_VALIDO_SENHA;
-    const static string VALOR_INVALIDO_SENHA;
-    CPF *cpf;
-    Nome *nome;
-    Senha *senha;
-    int estado;
-    void setUp();
-    void tearDown();
-    void testarCenariosValido();
-    void testarCenarioInvalido();
-public:
-    const static int SUCESSO = 0;
-    const static int FALHA = -1;
-    int run();
-};
-
-//TESTE Entidade: TUCarteira// Carlos Eduardo - 241004659
-
-class TUCarteira{
-private:
-    const int VALOR_VALIDO_CODIGO = 12345678;
-    const int VALOR_INVALIDO_CODIGO = 1232243;
-    const static string VALOR_VALIDO_NOME;
-    const static string VALOR_INVALIDO_NOME;
-    const static string VALOR_VALIDO_PERFIL;
-    const static string VALOR_INVALIDO_PERFIL;
-    Codigo *codigo;
-    Nome *nome;
-    Perfil *perfil;
-    int estado;
-    void setUp();
-    void tearDown();
-    void testarCenariosValido();
-    void testarCenarioInvalido();
-public:
-    const static int SUCESSO = 0;
-    const static int FALHA = -1;
-    int run();
-};
-*/
-//TESTE Entidade: TUConta// Carlos Eduardo - 241004659
-
-class TUConta{
-private:
-    const static string VALOR_VALIDO_CPF;
-    const static string VALOR_VALIDO_NOME;
-    const static string VALOR_VALIDO_SENHA;
+    /// @brief Inicialização da variavel que representa a conta
     Conta *conta;
+    /// @brief Inicialização da variavel de teste
     int estado;
+    /// @brief Método que constroi o dominio
     void setUp();
+    /// @brief Método que destroi o dominio
     void tearDown();
+    /// @brief Método de teste da entidade
+    /// Testa cada dominio individualmente com os valores validos, caso ao menos 1 esteja invalido, o teste resulta em FALHA.
     void testarCenarios();
 public:
+    /// @brief Constante de controle do Teste
     const static int SUCESSO = 0;
+    /// @brief Constante de controle do Teste
     const static int FALHA = -1;
+    /// @brief Método que roda o teste, chama os outros métodos, setUp,testarCenario e tearDown em ordem
+    /// @return Retorna o estado
     int run();
 };
 
 //TESTE Entidade: TUCarteira// Carlos Eduardo - 241004659
-
+/// @brief Classe de teste unitario da entidade Carteirax
+/// Contem valor válidos para cada um dos dominios dentro da entidade.
 class TUCarteira{
-private:
+private: /// @brief Constante de valor valido para o dominio Codigo
     const int VALOR_VALIDO_CODIGO = 12348;
+    /// @brief Constante de valor valido para o dominio Nome
     const static string VALOR_VALIDO_NOME;
+    /// @brief Constante de valor valido para o dominio Perfil
     const static string VALOR_VALIDO_PERFIL;
+    /// @brief Inicialização da variavel que representa a Carteira
     Carteira *carteira;
+    /// @brief Inicialização da variavel de teste
     int estado;
+    /// @brief Método que constroi o dominio
     void setUp();
+    /// @brief Método que destroi o dominio
     void tearDown();
+    /// @brief Método de teste da entidade
+    /// Testa cada dominio individualmente com os valores validos, caso ao menos 1 esteja invalido, o teste resulta em FALHA.
     void testarCenarios();
 public:
+    /// @brief Constante de controle do Teste
     const static int SUCESSO = 0;
+    /// @brief Constante de controle do Teste
     const static int FALHA = -1;
+    /// @brief Método que roda o teste, chama os outros métodos, setUp,testarCenario e tearDown em ordem
+    /// @return Retorna o estado
     int run();
 };
 #endif // TESTES_HPP_INCLUDED
