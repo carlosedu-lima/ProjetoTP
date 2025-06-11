@@ -23,8 +23,8 @@ bool Codigo::setValor(int valor){
 ///Metodos Classe Dominio CodigoNegociacao - Carlos Eduardo 241004659
 bool CodigoNegociacao::validar(string valor){
     int cont = 0;
-    if(size(valor)<=LIMITE){
-        while (cont<size(valor)) {
+    if(valor.size()<=LIMITE){
+        while (cont<valor.size()) {
             if(isalpha(valor[cont])||valor[cont]==' '||isdigit(valor[cont])){
                 cont++;
             }else{
@@ -196,7 +196,7 @@ bool Nome::setNome(string nome){
 bool CPF::validarCPF(string cpf){
     int cont = 0;
     if (cpf.size() == TAMANHO){
-        while (cont<size(cpf)){
+        while (cont<cpf.size()){
             if(!isdigit(cpf[cont])){
                 throw invalid_argument("Caractere Invalido!");}
             else{
