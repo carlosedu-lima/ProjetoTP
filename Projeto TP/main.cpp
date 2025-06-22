@@ -7,9 +7,48 @@
 #include "entidades.hpp"
 #include "testes.hpp"
 #include "testes.cpp" // A falta desse include estava causando um erro de linkagem
+#include "interfaces.hpp"
+#include "controladoras.hpp"
+#include "controladoras.cpp"
+#include "stubs.hpp"
+#include "stubs.cpp"
 using namespace std;
 
 int main(){
+        // controladoras
+    CntrIAA *cntrIAA = new CntrIAA();
+    ISA *stubISA = new StubISA();
+
+    cntrIAA->setCntrISA(stubISA);
+    bool resultado;
+    CPF cpf;
+
+    while(true){
+
+        cout << endl << "Tela inicial de sistema." << endl;
+        try{
+            resultado = cntrIAA->autenticar(cpf);
+
+        }
+        catch(const runtime_error &exp){
+            cout << "Erro de sistema" << endl;
+            break;
+        }
+
+        if(resultado) {
+            cout << endl << "Sucesso autenticacao." << endl;
+            cout << endl << "CPF = " << cpf.getCPF() << endl<< endl;
+            break;
+        }
+        else {
+            cout << endl << "Erro autenticacao."<< endl<< endl;
+            break;
+        }
+    }
+
+    delete cntrIAA;
+    delete stubISA;
+    // fim controladoras
     TUDinheiro testeDinheiro;
     switch(testeDinheiro.run()){
         case TUDinheiro::SUCESSO: cout << "Teste Dominio Dinheiro: SUCESSO" << endl;
