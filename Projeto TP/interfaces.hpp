@@ -9,7 +9,7 @@ public:
     /// @param Um objeto do tipo CPF e um objeto do tipo Senha, que representam os valores a serem autenticado.
     /// @brief Compara os objetos CPF e Senha com os valores armazenados.
     /// @return True se o valor for validado, False caso o contrario.
-    virtual bool autenticar(CPF,Senha) = 0;
+    virtual bool autenticar(CPF&,Senha&) = 0;
 };
 
 ///Interface de apresentação de autenticação / Luiz Carlos Campos de Alencar - 241004560
