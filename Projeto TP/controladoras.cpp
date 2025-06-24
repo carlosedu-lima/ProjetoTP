@@ -35,7 +35,7 @@ bool CntrIAC::criar(){
     Conta conta;
 
     while(true){
-       cout << "Criação de conta."  << endl << endl;
+       cout << "Criacao de conta."  << endl << endl;
 
        try{
            cout << "Digite o Nome : " << endl << endl;
@@ -68,12 +68,15 @@ void CntrIAC::executar(CPF cpf){
     switch(opcao){
         case 1:{ // Defeituoso, a IAC tem o método executar(CPF), enquanto o método precisa de ler(Conta&), talvez alterar o método executar para receber uma conta no lugar do CPF
             Conta conta;
+
             if(cntrISC->ler(conta)){
-                cout << "Conta Lida com sucesso" << endl;
+                cout << "Conta Lida com sucesso" << endl<<endl;
+                break;
             }else{
-                cout << "Conta não encontrada!" << endl;
+                cout << "Conta não encontrada!" << endl<<endl;
+                break;
             }
-            break;
+
         }
         case 2:{
             Nome novoNome;
@@ -86,7 +89,7 @@ void CntrIAC::executar(CPF cpf){
                         cin >> entrada;
                         novoNome.setNome(entrada);
                         contaEditada.setNome(novoNome);
-                        break;}
+                        }
                         catch(const invalid_argument &exp){
                             cout << "Nome invalido!"<< endl;}
                     try{
@@ -98,22 +101,26 @@ void CntrIAC::executar(CPF cpf){
                             cout << "Senha Invalida!" << endl;}
             contaEditada.setCPF(cpf);
 
+
             if(cntrISC->editar(contaEditada)){
-                cout << "Conta editada com sucesso." << endl;
+                cout << "Conta editada com sucesso." << endl<<endl;
                 break;
             }else{
-                cout << "Não foi possivel editar a conta." << endl;
+                cout << "Não foi possivel editar a conta." << endl<<endl;
+                break;
             }
-            break;}
+            }break;
 
         }
         case 3:{
+
             if(cntrISC->excluir(cpf)){
-                cout << "Conta excluida com sucesso!" << endl;
+                cout << "Conta excluida com sucesso!" << endl<<endl;
+                break;
             }else{
-                cout << "Falha ao excluir a conta." << endl;
+                cout << "Falha ao excluir a conta." << endl<<endl;
+                break;
             }
-            break;
         }
         default:
             std::cerr << "Opção inválida!" << std::endl;
