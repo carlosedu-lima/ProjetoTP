@@ -15,14 +15,18 @@
 using namespace std;
 
 int main(){
-        // controladoras
+    // controladoras
     CntrIAA *cntrIAA = new CntrIAA();
     ISA *stubISA = new StubISA();
+    CntrIAC *cntrIAC = new CntrIAC();
+    ISC *stubISC = new StubISC();
 
+    cntrIAC->setCntrISC(stubISC);
     cntrIAA->setCntrISA(stubISA);
     bool resultado;
     CPF cpf;
-
+    Conta conta;
+// Teste Autenticação
     while(true){
 
         cout << endl << "Tela inicial de sistema." << endl;
@@ -45,9 +49,36 @@ int main(){
             break;
         }
     }
+// Teste Criação
+    while(true){
+        cout << "Tela menu de contas" << endl;
+
+        try{
+            resultado = cntrIAC->criar();
+        }
+        catch(runtime_error &exp){
+        cout << "Erro de sistema" << endl;}
+
+        if(resultado) {
+            cout << endl << "Sucesso criacao." << endl;
+            break;
+        }
+        else {
+            cout << endl << "Erro de criacao." << endl;
+            break;
+        }
+    }
+// Teste Executar
+    try {
+            cntrIAC->executar(cpf);
+        }
+        catch(runtime_error &exp){
+        cout << "Erro de sistema" << endl; }
 
     delete cntrIAA;
     delete stubISA;
+    delete cntrIAC;
+    delete stubISC;
     // fim controladoras
     TUDinheiro testeDinheiro;
     switch(testeDinheiro.run()){
