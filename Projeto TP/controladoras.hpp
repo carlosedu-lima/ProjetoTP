@@ -1,6 +1,7 @@
 #ifndef CONTROLADORAS_HPP_INCLUDED
 #define CONTROLADORAS_HPP_INCLUDED
 #include "interfaces.hpp"
+#include "dominios.hpp"
 
 class CntrIAA:public IAA{
 private:
