@@ -3,15 +3,13 @@
 #include <stdexcept>
 #include <cctype>
 
-#include "dominios.hpp"
-#include "entidades.hpp"
-#include "testes.hpp"
-#include "testes.cpp" // A falta desse include estava causando um erro de linkagem
-#include "interfaces.hpp"
-#include "controladoras.hpp"
-#include "controladoras.cpp"
-#include "stubs.hpp"
-#include "stubs.cpp"
+#include "../includes/dominios.hpp"
+#include "../includes/entidades.hpp"
+#include "../includes/testes.hpp"
+#include "../includes/interfaces.hpp"
+#include "../includes/controladoras.hpp"
+#include "../includes/stubs.hpp"
+#include "../includes/containers.hpp"
 using namespace std;
 
 int main(){
