@@ -33,7 +33,7 @@ public:
     /// @param Um objeto do tipo Conta que representa a conta a ser lida.
     /// @brief Visualiza os dados de uma conta ja existente.
     /// @return True se os dados forem apresentados, False caso o contrario.
-    virtual bool ler(Conta&) = 0;
+    virtual bool ler(Conta*) = 0;
     /// @param Uma referencia a um objeto do tipo Conta que representa a conta a ser editada.
     /// @brief Altera os dados de uma conta ja existente.
     /// @return True se os dados forem alterados, False caso o contrario.
