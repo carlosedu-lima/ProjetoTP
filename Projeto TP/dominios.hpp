@@ -237,13 +237,13 @@ private:
     static const int LIMITE_CHAR_MAX = 20;
     /// @param LIMITE_CHAR_MIN variavel de controle, usada para validação.
     static const int LIMITE_CHAR_MIN = 1;
-    /// @brief Método que valida o CPF
+    /// @brief Método que valida o Nome
     /// @param string que carrega o nome que será validado.
     /// Recebe uma string do método setNome, valida seu tamanho e verifica se contem caracteres indesejados.
     /// @return True se a string passar pela verificação, False caso o contrario.
     bool validarNome(string);
 public:
-    /// @brief Método que armazena o CPF.
+    /// @brief Método que armazena o Nome.
     /// @param string que carrega o nome que será armazenado.
     /// Recebe uma string e faz uma chamada ao método validarNome, caso o retorno seja True, armazena o nome na variavel nome.
     /// @return True se o nome for armazenado, Lança exceção caso contrario
