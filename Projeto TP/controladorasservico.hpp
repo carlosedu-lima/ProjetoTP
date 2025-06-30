@@ -13,7 +13,7 @@ public:
 class CntrISC:public ISC{
 public:
     bool criar(Conta)override;
-    bool ler(Conta&)override;
+    bool ler(Conta*)override;
     bool editar(Conta)override;
     bool excluir(CPF)override;
 
