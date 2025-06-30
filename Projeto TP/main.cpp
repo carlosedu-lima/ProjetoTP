@@ -5,10 +5,8 @@
 
 #include "../includes/dominios.hpp"
 #include "../includes/entidades.hpp"
-#include "../includes/testes.hpp"
 #include "../includes/interfaces.hpp"
 #include "../includes/controladoras.hpp"
-#include "../includes/stubs.hpp"
 #include "../includes/containers.hpp"
 using namespace std;
 
