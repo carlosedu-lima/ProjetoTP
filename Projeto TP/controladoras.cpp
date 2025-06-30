@@ -69,7 +69,7 @@ void CntrIAC::executar(CPF cpf){
 
     switch(opcao){
         case 1:{ // Defeituoso, a IAC tem o método executar(CPF), enquanto o método precisa de ler(Conta&), talvez alterar o método executar para receber uma conta no lugar do CPF
-            Conta conta;
+            Conta* conta;
 
             if(cntrISC->ler(conta)){
                 cout << "Conta Lida com sucesso" << endl<<endl;
