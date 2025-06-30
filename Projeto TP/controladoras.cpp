@@ -1,4 +1,8 @@
-#include "controladoras.hpp"
+#include "../includes/controladoras.hpp"
+#include "../includes/comando.hpp"
+#include <string>
+#include <iostream>
+using namespace std;
 //Métodos Controladora IAA
 bool CntrIAA::autenticar(CPF& cpf){
     Senha senha;
@@ -24,7 +28,6 @@ bool CntrIAA::autenticar(CPF& cpf){
     bool resultado = cntrISA->autenticar(cpf, senha);
     return resultado;
 }
-
 // Métodos controladora IAC
 
 bool CntrIAC::criar(){
