@@ -1,7 +1,7 @@
 #ifndef CONTROLADORAS_HPP_INCLUDED
 #define CONTROLADORAS_HPP_INCLUDED
-#include "interfaces.hpp"
-#include "dominios.hpp"
+#include "../includes/interfaces.hpp"
+
 
 class CntrIAA:public IAA{
 private:
@@ -27,4 +27,5 @@ public:
 void inline CntrIAC::setCntrISC(ISC *cntrISC){
     this->cntrISC = cntrISC;
 }
+
 #endif // CONTROLADORAS_HPP_INCLUDED
