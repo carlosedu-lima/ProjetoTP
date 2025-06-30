@@ -21,7 +21,7 @@ bool CntrISC::editar(Conta conta){
     return container->atualizar(conta);
 }
 
-bool CntrISC::ler(Conta& conta){
+bool CntrISC::ler(Conta* conta){
     ContainerConta *container;
     container = ContainerConta::getInstancia();
 
