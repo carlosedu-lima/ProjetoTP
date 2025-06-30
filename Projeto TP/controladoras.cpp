@@ -1,5 +1,4 @@
 #include "../includes/controladoras.hpp"
-#include "../includes/comando.hpp"
 #include <string>
 #include <iostream>
 using namespace std;
