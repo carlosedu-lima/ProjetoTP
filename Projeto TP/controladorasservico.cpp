@@ -4,7 +4,14 @@ bool CntrISA::autenticar(CPF& cpf, Senha& senha){
     ContainerConta *container;
     container = ContainerConta::getInstancia();
 
-    return container->pesquisar(/* A SER IMPLEMENTADO */);
+    Conta contaTemp;
+    contaTemp.setCPF(cpf);
+
+    Conta* contaEncontrada = nullptr;
+    if (container->pesquisar(&contaTemp, &contaEncontrada)) {
+        return contaEncontrada->getSenha().getValor() == senha.getValor();
+    }
+    return false;
 }
 
 bool CntrISC::criar(Conta conta){
