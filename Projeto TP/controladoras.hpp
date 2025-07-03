@@ -3,6 +3,29 @@
 #include "../includes/interfaces.hpp"
 #include "../includes/dominios.hpp"
 
+class CntrInicializacao{
+private:
+    IAA *cntrIAA;
+    IAC *cntrIAC;
+    //IAI *cntrIAI;
+
+public:
+    void setCntrIAA(IAA*);
+    void setCntrIAC(IAC*);
+    //void setCntrIAI(IAI*);
+};
+void inline CntrInicializacao::setCntrIAA(IAA *cntrIAA){
+    this->cntrIAA= cntrIAA;
+}
+
+void inline CntrInicializacao::setCntrIAC(IAC *cntrIAC){
+    this->cntrIAC= cntrIAC;
+}
+
+/*void inline CntrInicializacao::setCntrIAI(IAI *cntrIAI){
+    this->cntrIAI= cntrIAI;
+}*/
+
 
 class CntrIAA:public IAA{
 private:
