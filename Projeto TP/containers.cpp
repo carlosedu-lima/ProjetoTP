@@ -33,6 +33,17 @@ bool ContainerConta::pesquisar(Conta* conta){
     return false;
 }
 
+bool ContainerConta::pesquisar(Conta* contaBusca, Conta** contaResultado){
+    auto it = container.find(contaBusca->getCPF().getCPF());
+    if (it != container.end()) {
+        *contaResultado = &(it->second); // Retorna a conta encontrada
+        return true;
+    }
+    *contaResultado = nullptr;
+    return false;
+
+}
+
 bool ContainerConta::atualizar(Conta conta){
     map<string, Conta>::iterator it = container.find(conta.getCPF().getCPF());
     if(it != container.end()){
