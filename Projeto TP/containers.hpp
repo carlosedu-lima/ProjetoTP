@@ -20,6 +20,7 @@ class ContainerConta{
         bool incluir(Conta);
         bool remover(CPF);
         bool pesquisar(Conta*);
+        bool pesquisar(Conta* contaBusca, Conta** contaResultado); // Sobrecarga, Método especifico para autenticar
         bool atualizar(Conta);
 };
 
